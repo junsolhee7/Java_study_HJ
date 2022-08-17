@@ -1,7 +1,12 @@
 package com.iu.home.bankMembers;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,4 +30,41 @@ public class MembersController {
 		
 		return "member/join";
 	}
+
+	
+	@RequestMapping(value="logout", method = RequestMethod.GET)
+	public String logout(HttpSession session)throws Exception{
+		session.invalidate();
+		return "redirect:../";
+	}
+	
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login() {
+		System.out.println("로그인 실행");
+		return "member/login";
+	}
+	
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String login(HttpSession session, BankMembersDTO bankMembersDTO, Model model) throws Exception {
+		System.out.println("DB에 로그인 실행");
+		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
+		System.out.println(bankMembersDTO);
+		session.setAttribute("member", bankMembersDTO);
+		
+		return "redirect:../";
+	}
+	
+	@RequestMapping(value="search", method=RequestMethod.GET)
+	public void getSearchByID()throws Exception{
+		
+	}
+	
+	@RequestMapping(value = "search", method = RequestMethod.POST)
+	public String getSearchByID(String search, Model model)throws Exception{
+		List<BankMembersDTO> ar= bankMembersService.getSearchByID(search);
+		
+		model.addAttribute("list", ar);
+		return "member/list";
+	}
+	
 }
