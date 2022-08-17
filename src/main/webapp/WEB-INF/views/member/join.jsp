@@ -4,12 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>join</title>
 </head>
 <body>
 	<h1>Join page</h1>
-	<a href="../">index</a>
-	<hr>
     <div class="container">
         <form action="join.iu" method="post" >
             <h4>아이디</h4>

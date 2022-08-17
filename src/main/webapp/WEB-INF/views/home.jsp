@@ -1,17 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+
+
 <html>
 <head>
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
-<a href="./member/join">join</a>
-<a href="2">2</a>
-<a href="3">3</a>
+	<h1>Index Page</h1>
+	<hr>
+	
+	<c:if test="${empty sessionScope.member}">
+	<a href="./member/join">join</a>
+	<a href="./member/login">login</a>
+	</c:if>
+	
+	<c:if test="${not empty sessionScope.member}">
+	<h3>${sessionScope.member.name} 님 환영합니다</h3>
+	<a href="./member/logout">Logout</a>
+	<a href="#">MyPage</a>
+	</c:if>
+	
+	<a href="./member/search">search</a>
+	
 </body>
 </html>
