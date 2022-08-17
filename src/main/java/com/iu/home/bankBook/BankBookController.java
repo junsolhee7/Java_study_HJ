@@ -18,12 +18,13 @@ public class BankBookController {
 	
 	
 	@RequestMapping(value = "list.iu", method = RequestMethod.GET)
-	public String list(Model model) throws Exception {
+	public void list(Model model) throws Exception {
 		//ModelAndView mv = new ModelAndView();
 		System.out.println("list 실행");
 		List<BankBookDTO> ar = bankBookService.getList();
 		model.addAttribute("list", ar);
-		return "bankbook/list";
+		
+		
 	}
 	
 	@RequestMapping(value = "detail.iu", method = RequestMethod.GET)
@@ -74,7 +75,7 @@ public class BankBookController {
 		int result = bankBookService.setUpdate(bankBookDTO);
 		System.out.println(result==1);
 
-		mv.setViewName("redirect:./detail.iu?booknum="+bankBookDTO.getBookNum());
+		mv.setViewName("redirect:./detail.iu?bookNum="+bankBookDTO.getBookNum());
 		
 		return mv;
 	}

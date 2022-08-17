@@ -16,7 +16,7 @@
 	</update>
 	
 	<insert id="setBankBook" parameterType="com.iu.home.bankBook.BankBookDTO">
-		INSERT INTO BANKBOOK VALUES(#{ca},#{bookName},#{bookRate},1)
+		INSERT INTO BANKBOOK VALUES(#{bookNum},#{bookName},#{bookRate},1)
 	</insert> 
 	
 	<update id="setUpdate" parameterType="com.iu.home.bankBook.BankBookDTO">

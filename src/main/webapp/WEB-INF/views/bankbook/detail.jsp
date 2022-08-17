@@ -19,10 +19,10 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td>${requestScope.detail.getBookNum()}</td>
+			<td>${requestScope.detail.bookNum}</td>
 			<td>${requestScope.detail.bookName}</td>
-			<td>${detail.bookRate}</td>
-			<td>${detail.bookSale}</td>
+			<td>${requestScope.detail.bookRate}</td>
+			<td>${requestScope.detail.bookSale}</td>
 		</tr>
 	</tbody>
 	
@@ -34,11 +34,11 @@
 	<!-- 절대경로 -->
 	<a href="/member/join.iu">Join</a>
 	<a href="./list.iu">리스트보기</a>
-	<a href="./update.iu?bookNum=${detail.bookNum}">수정</a>
-	<a href="./delete.iu?bookNum=${detail.bookNum}">삭제</a>
+	<a href="./update.iu?bookNum=${requestScope.detail.bookNum}">수정</a>
+	<a href="./delete.iu?bookNum=${requestScope.detail.bookNum}">삭제</a>
 	
 	<c:if test="${not empty sessionScope.member}">
-	<a href="../bankAccount/add.iu?bookNum=${detail.bookNum}">상품 가입하기</a>
+	<a href="../bankAccount/add.iu?bookNum=${requestScope.detail.bookNum}">상품 가입하기</a>
 	</c:if>
 </body>
 </html>

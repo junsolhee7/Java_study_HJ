@@ -4,19 +4,12 @@ import java.util.Calendar;
 
 public class BankBookDTO {
 	
-	private Long ca;
 	private Long bookNum;
 	private String bookName;
 	private Double bookRate;
 	private Integer bookSale;
 	
 	
-	public Long getCa() {
-		return ca;
-	}
-	public void setCa(Calendar ca) {
-		this.ca = ca.getTimeInMillis();
-	}
 	public Long getBookNum() {
 		return bookNum;
 	}
