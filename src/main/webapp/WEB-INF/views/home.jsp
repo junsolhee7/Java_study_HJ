@@ -5,10 +5,12 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+	<h1>Index Page</h1>
+	<hr>
+	<a href="member/join">join</a>
+	<a href="member/login">login</a>
+	<a href="member/search">search</a>
+	<a href="member/list">list</a>
 
-<P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
