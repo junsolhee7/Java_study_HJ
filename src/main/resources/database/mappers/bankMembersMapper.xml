@@ -8,15 +8,15 @@
 <!-- application 내에서 중복 X -->
 <mapper namespace="com.iu.home.bankMembers.BankMembersDAO">
 <!-- id는 DAO의 메서드명과 동일하게 -->
-	<insert id="setJoin" parameterType="com.iu.home.bankMembers.BankMembersDTO">
+	<insert id="setJoin" parameterType="BankMembersDTO">
 		INSERT INTO BANKMEMBERS VALUES(#{userName},#{passWord},#{name},#{email},#{phone})
 	</insert>
 	
-	<select id="getLogin" parameterType="com.iu.home.bankMembers.BankMembersDTO" resultType="com.iu.home.bankMembers.BankMembersDTO">
+	<select id="getLogin" parameterType="BankMembersDTO" resultType="BankMembersDTO">
 		SELECT * FROM BANKMEMBERS WHERE USERNAME=#{userName} and PASSWORD=#{passWord}
 	</select>
 	
-	<select id="getSearchByID" parameterType="java.lang.String" resultType="com.iu.home.bankMembers.BankMembersDTO">
+	<select id="getSearchByID" parameterType="String" resultType="BankMembersDTO">
 		SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{search}||'%' ORDER BY USERNAME ASC	
 	</select>
 

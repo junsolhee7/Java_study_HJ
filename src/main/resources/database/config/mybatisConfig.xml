@@ -3,4 +3,16 @@
 <!DOCTYPE configuration
 				  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 				  "http://mybatis.org/dtd/mybatis-3-config.dtd">
- <configuration></configuration> 
+ <configuration>
+ 	<typeAliases>
+ 		<typeAlias type="com.iu.home.bankMembers.BankMembersDTO" alias="BankMembersDTO"/>
+ 		
+ 		<typeAlias type="com.iu.home.bankBook.BankBookDTO" alias="BankBookDTO"/>
+ 		<typeAlias type="com.iu.home.bankBook.BankBookDAO" alias="BankBookDAO"/>
+ 		
+ 		<typeAlias type="com.iu.home.bankAccount.BankAccountDTO" alias="BankAccountDTO"/>
+ 		
+ 		<typeAlias type="java.lang.String" alias="String"/>
+ 	
+ 	</typeAliases>
+ </configuration> 

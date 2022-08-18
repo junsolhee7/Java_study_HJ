@@ -1,4 +1,4 @@
-package com.iu.home2;
+package com.iu.home;
 
 import static org.junit.Assert.*;
 

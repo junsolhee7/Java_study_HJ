@@ -1,4 +1,4 @@
-package com.iu.home2.bankBookMembers;
+package com.iu.home.bankBookMembers;
 
 import static org.junit.Assert.*;
 
@@ -6,10 +6,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.iu.home.MyAbstractTest;
 import com.iu.home.bankMembers.BankMembersDAO;
 import com.iu.home.bankMembers.BankMembersDTO;
 import com.iu.home.bankMembers.BankMembersService;
-import com.iu.home2.MyAbstractTest;
 
 public class BankBookMembersDAOTEST extends MyAbstractTest {
 
@@ -31,13 +31,16 @@ public class BankBookMembersDAOTEST extends MyAbstractTest {
 
 	@Test
 	public void setJoinTest() throws Exception {
-		bankMembersDTO.setUserName("qwe");
+		bankMembersDTO = new BankMembersDTO();
+		bankMembersDTO.setUserName("testtset");
 		bankMembersDTO.setPassWord("asd");
 		bankMembersDTO.setName("zxc");
 		bankMembersDTO.setEmail("qwe@asd");
 		bankMembersDTO.setPhone("5234");
-
-		  int result = bankMembersService.setJoin(bankMembersDTO);
+		
+		System.out.println("service.setjoin실행전");
+		int result = bankMembersService.setJoin(bankMembersDTO);
+		System.out.println("service.setjoin실행성공");
 		  
 		  assertEquals(1,result);
 		
