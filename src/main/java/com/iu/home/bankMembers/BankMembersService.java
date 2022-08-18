@@ -12,7 +12,7 @@ public class BankMembersService {
 	private BankMembersDAO bankMembersDAO;
 	
 	public int setJoin(BankMembersDTO bankMembersDTO)throws Exception{
-		return bankMembersDAO.setjoin(bankMembersDTO);
+		return bankMembersDAO.setJoin(bankMembersDTO);
 	}
 	
 	

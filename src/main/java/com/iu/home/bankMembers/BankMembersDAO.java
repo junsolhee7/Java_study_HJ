@@ -14,7 +14,7 @@ public class BankMembersDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.iu.home.bankMembers.BankMembersDAO.";
 	
-	public int setjoin(BankMembersDTO bankMembersDTO) throws Exception{
+	public int setJoin(BankMembersDTO bankMembersDTO) throws Exception{
 		
 		return sqlSession.insert(NAMESPACE+"setJoin", bankMembersDTO);
 	}                                                                                                                    
