@@ -23,6 +23,7 @@
 	</c:if>
 	
 	<a href="./member/search">search</a>
+	<a href="./bankbook/list.iu">상품리스트</a>
 	
 </body>
 </html>
