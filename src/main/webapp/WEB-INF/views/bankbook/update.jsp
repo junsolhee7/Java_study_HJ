@@ -19,7 +19,10 @@
 		Rate : <input type="text" name="bookRate" value="${requestScope.update.bookRate}">
 	</div>
 	<div>
-		<input type="text" name="bookSale" readonly value="${requestScope.update.bookSale}" >
+		Sale :<input type="text" name="bookSale" readonly value="${requestScope.update.bookSale}" >
+	</div>
+	<div>
+		Contents :<input type="text" name="bookContents" value="${requestScope.update.bookContents}" >
 	</div>
 		<button type="submit">수정</button>
 		<input type="submit" value="수정">

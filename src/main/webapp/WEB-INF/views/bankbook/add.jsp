@@ -12,9 +12,10 @@
 <body>
 	<h3>Add page</h3>
 	<form action="add.iu" method="POST">
-		Booknum <input type="text" name="bookNum" value="<%=ca.getTimeInMillis() %>" readonly>
+		BookNum <input type="text" name="bookNum" value="<%=ca.getTimeInMillis() %>" readonly>
 		BookName <input type="text" name="bookName"><br>
 		BookRate <input type="text" name="bookRate"><br>
+		BookContents <input type="text" name="bookContents"><br>
 		
 		<input type="submit" value="입력">
 		<button type="submit">Add</button>
