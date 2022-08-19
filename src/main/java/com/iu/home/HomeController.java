@@ -37,7 +37,7 @@ public class HomeController {
 		response.addCookie(cookie);
 		System.out.println(sqlSession);
 		
-		return "home";
+		return "index";
 	}
 	
 }
