@@ -6,11 +6,19 @@
  <configuration>
  	<typeAliases>
  		<typeAlias type="com.iu.home.bankMembers.BankMembersDTO" alias="BankMembersDTO"/>
+ 		<typeAlias type="com.iu.home.bankMembers.BankMembersDAO" alias="BankMembersDAO"/>
  		
  		<typeAlias type="com.iu.home.bankBook.BankBookDTO" alias="BankBookDTO"/>
  		<typeAlias type="com.iu.home.bankBook.BankBookDAO" alias="BankBookDAO"/>
  		
  		<typeAlias type="com.iu.home.bankAccount.BankAccountDTO" alias="BankAccountDTO"/>
+ 		<typeAlias type="com.iu.home.bankAccount.BankAccountDAO" alias="BankAccountDAO"/>
+ 		
+ 		<typeAlias type="com.iu.home.notice.NoticeDTO" alias="NoticeDTO"/>
+ 		<typeAlias type="com.iu.home.notice.NoticeDAO" alias="NoticeDAO"/>
+ 		
+ 		<typeAlias type="com.iu.home.qna.QnADTO" alias="QnADTO"/>
+ 		<typeAlias type="com.iu.home.qna.QnADAO" alias="QnADAO"/>
  		
  		<typeAlias type="java.lang.String" alias="String"/>
  	

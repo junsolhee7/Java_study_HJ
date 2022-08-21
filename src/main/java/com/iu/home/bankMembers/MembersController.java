@@ -64,6 +64,7 @@ public class MembersController {
 		List<BankMembersDTO> ar= bankMembersService.getSearchByID(search);
 		
 		model.addAttribute("list", ar);
+		System.out.println(ar);
 		return "member/list";
 	}
 	
