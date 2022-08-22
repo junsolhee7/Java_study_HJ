@@ -41,11 +41,11 @@
 	
 	<!-- 상대경로 -->
 	<a href="./list">뒤로가기</a>
-	<a href="./update.iu?bookNum=${requestScope.detail.num}">수정</a>
-	<a href="./delete.iu?bookNum=${requestScope.detail.num}">삭제</a>
+	<a href="./update.iu?num=${requestScope.detail.num}">수정</a>
+	<a href="./delete.iu?num=${requestScope.detail.num}">삭제</a>
 	
 	<c:if test="${not empty sessionScope.member}">
-	<a href="../bankAccount/add.iu?bookNum=${requestScope.detail.num}">상품 가입하기</a>
+	<a href="../bankAccount/add.iu?num=${requestScope.detail.num}">상품 가입하기</a>
 	</c:if>
 	<c:import url="../template/footer.jsp"></c:import>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
