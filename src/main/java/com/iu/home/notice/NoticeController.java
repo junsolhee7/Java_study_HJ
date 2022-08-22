@@ -35,8 +35,13 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="update",method=RequestMethod.GET)
-	public void update()throws Exception{
-		
+	public void update(NoticeDTO noticeDTO, Model model)throws Exception{
+		noticeDTO=noticeService.getDetail(noticeDTO);
+		model.addAttribute("update",noticeDTO);
 	}
 
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public void update(NoticeDTO noticeDTO, ModelAndView mv)throws Exception{
+		noticeService.setUpdate(noticeDTO);
+	}
 }

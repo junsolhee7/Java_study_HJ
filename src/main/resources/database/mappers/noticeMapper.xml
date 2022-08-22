@@ -12,5 +12,20 @@
 	<select id="getDetail" parameterType="NoticeDTO" resultType="NoticeDTO">
 		SELECT * FROM NOTICE WHERE NUM = #{num}
 	</select>
+	
+	<insert id="setNotice" parameterType="NoticeDTO">
+		INSERT INTO BANKBOOK VALUES(#{bookNum},#{bookName},#{bookRate},1,#{bookContents})
+	</insert>
+	
+	<update id="setUpdate" parameterType="NoticeDTO">
+		UPDATE NOTICE SET
+		NUM = #{num}, TITLE = #{title}, CONTENTS = #{Contents},
+		WRITER = #{writer}, REGDATE = #{regDate}, HIT = #{hit}
+		WHERE BOOKNUM = #{bookNum}
+	</update>
+	
+	<delete id="setDelete" parameterType="NoticeDTO">
+		DELETE NOTICE WHERE NUM = #{num}
+	</delete>
 
 </mapper>
