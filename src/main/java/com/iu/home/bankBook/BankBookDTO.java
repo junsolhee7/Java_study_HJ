@@ -1,6 +1,9 @@
 package com.iu.home.bankBook;
 
 import java.util.Calendar;
+import java.util.List;
+
+import com.iu.home.bankAccount.BankAccountDTO;
 
 public class BankBookDTO {
 	
@@ -9,6 +12,7 @@ public class BankBookDTO {
 	private Double bookRate;
 	private Integer bookSale;
 	private String bookContents;
+	private List<BankAccountDTO> bankAccountDTOs;//1:n관계
 	
 	public Long getBookNum() {
 		return bookNum;

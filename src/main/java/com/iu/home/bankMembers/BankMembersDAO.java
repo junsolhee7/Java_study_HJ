@@ -28,4 +28,8 @@ public class BankMembersDAO {
 		return sqlSession.selectOne(NAMESPACE+"getLogin", bankMembersDTO);
 	}
 	
+	public BankMembersDTO getMyPage(BankMembersDTO bankMembersDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getMyPage", bankMembersDTO);
+	}
+	
 }

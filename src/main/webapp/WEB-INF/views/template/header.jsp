@@ -23,7 +23,6 @@
 	              	</c:otherwise>
               </c:choose>
               <a class="nav-link" href="/bankbook/list.iu">상품리스트</a>
-              <a class="nav-link" href="/board/list">공지사항</a>
               <a class="nav-link" href="/member/search">회원검색</a>
               <a class="nav-link" href="/notice/list">NOTICE</a>
               <a class="nav-link" href="/qna/list">QnA</a>

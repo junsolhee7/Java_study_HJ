@@ -19,5 +19,35 @@
 	<select id="getSearchByID" parameterType="String" resultType="BankMembersDTO">
 		SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE '%'||#{search}||'%' ORDER BY USERNAME ASC	
 	</select>
+	
+	<select id="getMyPage" parameterType="BankMembersDTO" resultMap="getMyPageResult">
+		<!-- SELECT * FROM BANKMEMBERS WHERE USERNAME=#{userName} -->
+		
+		SELECT USERNAME,NAME,EMAIL,PHONE,ACCOUNTNUM,BOOKNAME,ACCOUNTDATE
+	    FROM BANKMEMBERS BM
+	    
+		    INNER JOIN
+		    BANKACCOUNT BA
+		    USING (USERNAME)
+		    
+		    INNER JOIN
+		    BANKBOOK BB
+		    USING (BOOKNUM)
+		WHERE USERNAME=#{userName}
+	</select>
+	
+	<resultMap type="BankMembersDTO" id="getMyPageResult">
+		<id column="USERNAME" property="userName"/>
+		<result column="NAME" property="name"/>	
+		<result column="EMAIL" property="email"/>
+		<result column="PHONE" property="phone"/>
+		<collection property="bankAccountDTO" javaType="List" ofType="BankAccountDTO">
+			<id column="ACCOUNTNUM" property="accountNum"/>
+			<result column="ACCOUNTDATE" property="accountDate"/>
+			<association property="bankBookDTO" javaType="BankBookDTO">
+				<result column="BOOKNAME" property="bookName"/>
+			</association>
+		</collection>
+	</resultMap>
 
 </mapper>

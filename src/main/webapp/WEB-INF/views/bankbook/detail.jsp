@@ -12,10 +12,10 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<h1>Detail Page</h1>
-	<table border="1">
+	<table class="table table-sm">
 	
 	<thead>
-		<tr>
+		<tr class="table-info">
 			<th>Number</th><th>Name</th><th>Rate</th><th>Sale</th><th>Contents</th>
 		</tr>
 	</thead>

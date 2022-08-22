@@ -31,8 +31,12 @@ public class NoticeController {
 		noticeDTO = noticeService.getDetail(noticeDTO);
 		mv.setViewName("notice/detail");
 		mv.addObject("detail",noticeDTO);
-
 		return mv;
+	}
+	
+	@RequestMapping(value="update",method=RequestMethod.GET)
+	public void update()throws Exception{
+		
 	}
 
 }
