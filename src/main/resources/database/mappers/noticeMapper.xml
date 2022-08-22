@@ -19,9 +19,9 @@
 	
 	<update id="setUpdate" parameterType="NoticeDTO">
 		UPDATE NOTICE SET
-		NUM = #{num}, TITLE = #{title}, CONTENTS = #{Contents},
+		NUM = #{num}, TITLE = #{title}, CONTENTS = #{contents},
 		WRITER = #{writer}, REGDATE = #{regDate}, HIT = #{hit}
-		WHERE BOOKNUM = #{bookNum}
+		WHERE NUM = #{num}
 	</update>
 	
 	<delete id="setDelete" parameterType="NoticeDTO">

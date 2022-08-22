@@ -41,7 +41,9 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value="update",method=RequestMethod.POST)
-	public void update(NoticeDTO noticeDTO, ModelAndView mv)throws Exception{
+	public ModelAndView update(NoticeDTO noticeDTO, ModelAndView mv)throws Exception{
 		noticeService.setUpdate(noticeDTO);
+		mv.setViewName("redirect:./detail?num="+noticeDTO.getNum());
+		return mv;
 	}
 }
