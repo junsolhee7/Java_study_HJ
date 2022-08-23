@@ -11,8 +11,11 @@ public class QnaService {
 	@Autowired
 	private QnaDAO qnaDAO;
 	
-	public List<QnaDTO> getList()throws Exception{
+	public List<QnaDTO> getList() throws Exception{
 		return qnaDAO.getList();
+	}
+	public QnaDTO getDetail(QnaDTO qnaDTO) throws Exception{
+		return qnaDAO.getDetail(qnaDTO);
 	}
 
 }
