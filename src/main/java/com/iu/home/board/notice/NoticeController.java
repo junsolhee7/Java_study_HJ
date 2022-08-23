@@ -29,7 +29,7 @@ public class NoticeController {
 	public ModelAndView detail(NoticeDTO noticeDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		noticeDTO = noticeService.getDetail(noticeDTO);
-		mv.setViewName("notice/detail");
+		mv.setViewName("board/notice/detail");
 		mv.addObject("detail",noticeDTO);
 		return mv;
 	}

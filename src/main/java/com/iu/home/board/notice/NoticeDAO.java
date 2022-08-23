@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.iu.home.board.impl.BoardDTO;
+
 @Repository
 public class NoticeDAO {
 	
@@ -22,5 +24,13 @@ public class NoticeDAO {
 	}
 	public int setUpdate(NoticeDTO noticeDTO)throws Exception{
 		return sqlSession.update(NAMESPACE+"setUpdate",noticeDTO);
+	}
+	public int setAdd(BoardDTO boardDTO) throws Exception {
+		
+		return sqlSession.insert(NAMESPACE+"setAdd", boardDTO);
+	}
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		
+		return sqlSession.delete(NAMESPACE+"setDelete", boardDTO);
 	}
 }
