@@ -58,11 +58,11 @@ public class NoticeController {
 	
 	//글수정
 	
-	@RequestMapping(value="update",method=RequestMethod.GET)
+	@RequestMapping(value="update.iu",method=RequestMethod.GET)
 	public ModelAndView setUpDate(BoardDTO boardDTO, ModelAndView mv)throws Exception{
 		boardDTO=noticeService.getDetail(boardDTO);
-		mv.addObject("boardDTO",boardDTO);
-		mv.setViewName("notice/update");
+		mv.addObject("update",boardDTO);
+		mv.setViewName("board/notice/update");
 		return mv;
 	}		
 	

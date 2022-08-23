@@ -11,20 +11,24 @@
 <body>
 <c:import url="../../template/header.jsp"></c:import>
 <form action="update.iu" method = "POST">
+
 		<div>
-			<input type="text" name = "num" readonly value="${requestScope.update.num}">
+			글번호<input type="text" name = "num" readonly value="${requestScope.update.num}">
 		</div>
 		<div>
-			Title : <input type="text" name="title" value="${requestScope.update.title}" >
+			글제목 : <input type="text" name="title" value="${requestScope.update.title}" >
 		</div>
 		<div>
-			Contents : <input type="text" name="contents" value="${requestScope.update.contents}">
+			글내용 : <input type="text" name="contents" value="${requestScope.update.contents}">
 		</div>
 		<div>
-			Writer :<input type="text" name="writer" readonly value="${requestScope.update.writer}" >
+			작성자 :<input type="text" name="writer" readonly value="${requestScope.update.writer}" >
 		</div>
 		<div>
-			RegDate :<input type="text" name="regDate" value="${requestScope.update.regDate}" >
+			작성일 :<input type="text" name="regDate" readonly value="${requestScope.update.regDate}" >
+		</div>
+		<div>
+			조회수 :<input type="text" name="regDate" readonly value="${requestScope.update.hit}" >
 		</div>
 			<button type="submit">수정</button>
 			<input type="submit" value="수정">

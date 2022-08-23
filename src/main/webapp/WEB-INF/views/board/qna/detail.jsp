@@ -14,7 +14,6 @@
 	<h1>Detail Page</h1>
 	
 	<table class="table table-sm">
-	
 	<thead>
 		<tr class="table-info">
 				<th>글번호</th>
@@ -41,7 +40,6 @@
 			<td>${requestScope.detail.depth}</td>
 		</tr>
 	</tbody>
-	
 	</table>
 	
 	
