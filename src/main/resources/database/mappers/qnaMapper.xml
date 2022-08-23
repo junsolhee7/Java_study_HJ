@@ -16,8 +16,8 @@
 	</select>
 	
 	<insert id="setAdd" parameterType="QnaDTO">
-		INSERT INTO QNA (NUM, TITLE, WRITER, CONTENTS, REGDATE, HIT)
-		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{writer}, #{contents}, sysdate, 0)
+		INSERT INTO QNA (NUM, TITLE, WRITER, CONTENTS, REGDATE, HIT,REF,STEP,DEPTH)
+		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{writer}, #{contents}, sysdate, 0, 0, 0, 0)
 	</insert>
 	
 	<update id="setUpdate" parameterType="QnaDTO">
