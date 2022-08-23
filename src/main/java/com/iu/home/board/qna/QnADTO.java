@@ -1,8 +1,8 @@
-package com.iu.home.notice;
+package com.iu.home.board.qna;
 
 import java.sql.Date;
 
-public class NoticeDTO {
+public class QnADTO {
 
 	private long num;
 	private String title;
@@ -10,7 +10,9 @@ public class NoticeDTO {
 	private String writer;
 	private Date regDate;
 	private long hit;
-	
+	private long ref;
+	private long step;
+	private long depth;
 	public long getNum() {
 		return num;
 	}
@@ -47,7 +49,24 @@ public class NoticeDTO {
 	public void setHit(long hit) {
 		this.hit = hit;
 	}
-	
+	public long getRef() {
+		return ref;
+	}
+	public void setRef(long ref) {
+		this.ref = ref;
+	}
+	public long getStep() {
+		return step;
+	}
+	public void setStep(long step) {
+		this.step = step;
+	}
+	public long getDepth() {
+		return depth;
+	}
+	public void setDepth(long depth) {
+		this.depth = depth;
+	}
 	
 	
 }

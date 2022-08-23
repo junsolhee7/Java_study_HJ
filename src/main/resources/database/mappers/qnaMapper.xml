@@ -3,7 +3,7 @@
 		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.iu.home.qna.QnADAO">
+<mapper namespace="com.iu.home.board.qna.QnADAO">
 
 	<select id="getList" resultType="QnADTO">
 		SELECT * FROM QNA ORDER BY NUM ASC

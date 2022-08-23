@@ -1,4 +1,4 @@
-package com.iu.home.notice;
+package com.iu.home.board.notice;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class NoticeDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE="com.iu.home.notice.NoticeDAO.";
+	private final String NAMESPACE="com.iu.home.board.notice.NoticeDAO.";
 	
 	public List<NoticeDTO> getList()throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getList");

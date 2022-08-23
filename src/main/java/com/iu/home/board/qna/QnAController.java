@@ -1,4 +1,4 @@
-package com.iu.home.qna;
+package com.iu.home.board.qna;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value="/qna/*")
+@RequestMapping(value="/board/qna/*")
 public class QnAController {
 	
 	@Autowired
@@ -21,6 +21,6 @@ public class QnAController {
 		List<QnADTO> ar = qnaService.getList();
 		model.addAttribute("list", ar);
 		
-		return "qna/list";
+		return "board/qna/list";
 	}
 }

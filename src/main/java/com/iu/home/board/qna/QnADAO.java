@@ -1,4 +1,4 @@
-package com.iu.home.qna;
+package com.iu.home.board.qna;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class QnADAO {
 
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.iu.home.qna.QnADAO.";
+	private final String NAMESPACE = "com.iu.home.board.qna.QnADAO.";
 	
 	public List<QnADTO> getList()throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getList");

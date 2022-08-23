@@ -1,4 +1,4 @@
-package com.iu.home.notice;
+package com.iu.home.board.notice;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iu.home.qna.QnADTO;
+import com.iu.home.board.qna.QnADTO;
 
 @Controller
-@RequestMapping(value="/notice/*")
+@RequestMapping(value="/board/notice/*")
 public class NoticeController {
 	
 	@Autowired
@@ -22,7 +22,7 @@ public class NoticeController {
 	public String getList(Model model) throws Exception{
 		List<NoticeDTO> ar = noticeService.getList();
 		model.addAttribute("list",ar);
-		return "/notice/list";
+		return "/board/notice/list";
 	}
 	
 	@RequestMapping(value="detail", method=RequestMethod.GET)

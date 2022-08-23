@@ -1,4 +1,4 @@
-package com.iu.home.notice;
+package com.iu.home.board.notice;
 
 import java.util.List;
 
