@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class QnADAO {
+public class QnaDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.iu.home.board.qna.QnADAO.";
+	private final String NAMESPACE = "com.iu.home.board.qna.QnaDAO.";
 	
-	public List<QnADTO> getList()throws Exception{
+	public List<QnaDTO> getList()throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 	

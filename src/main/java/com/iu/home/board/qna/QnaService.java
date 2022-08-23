@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class QnAService {
+public class QnaService {
 	
 	@Autowired
-	private QnADAO qnaDAO;
+	private QnaDAO qnaDAO;
 	
-	public List<QnADTO> getList()throws Exception{
+	public List<QnaDTO> getList()throws Exception{
 		return qnaDAO.getList();
 	}
 

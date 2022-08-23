@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping(value="/board/qna/*")
-public class QnAController {
+public class QnaController {
 	
 	@Autowired
-	private QnAService qnaService;
+	private QnaService qnaService;
 
 	@RequestMapping(value="list", method=RequestMethod.GET)
 	public String getList(Model model) throws Exception{
 		
-		List<QnADTO> ar = qnaService.getList();
+		List<QnaDTO> ar = qnaService.getList();
 		model.addAttribute("list", ar);
 		
 		return "board/qna/list";

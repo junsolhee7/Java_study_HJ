@@ -3,10 +3,29 @@
 		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.iu.home.board.qna.QnADAO">
+<mapper namespace="com.iu.home.board.qna.QnaDAO">
 
-	<select id="getList" resultType="QnADTO">
-		SELECT * FROM QNA ORDER BY NUM ASC
+	<select id="getList" resultType="QnaDTO">
+		SELECT NUM, TITLE, WRITER, REGDATE, HIT, REF, STEP, DEPTH
+		FROM QNA 
+		ORDER BY NUM DESC
 	</select>
+	
+	<select id="getDetail" parameterType="QnaDTO" resultType="QnaDTO">
+		SELECT * FROM QNA WHERE NUM=#{num}
+	</select>
+	
+	<insert id="setAdd" parameterType="QnaDTO">
+		INSERT INTO QNA (NUM, TITLE, WRITER, CONTENTS, REGDATE, HIT)
+		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{writer}, #{contents}, sysdate, 0)
+	</insert>
+	
+	<update id="setUpdate" parameterType="QnaDTO">
+		UPDATE QNA SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
+	</update>
+	
+	<delete id="setDelete" parameterType="QnaDTO">
+		DELETE QNA WHERE NUM=#{num}
+	</delete>
 
 </mapper>

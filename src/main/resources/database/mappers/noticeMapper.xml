@@ -6,26 +6,26 @@
 <mapper namespace="com.iu.home.board.notice.NoticeDAO">
 
 	<select id="getList" resultType="NoticeDTO">
-		SELECT * FROM NOTICE ORDER BY NUM ASC
+		SELECT NUM, TITLE, WRITER, REGDATE, HIT
+		FROM NOTICE 
+		ORDER BY NUM DESC
 	</select>
 	
-	<select id="getDetail" parameterType="NoticeDTO" resultType="NoticeDTO">
-		SELECT * FROM NOTICE WHERE NUM = #{num}
+	<select id="getDetail" parameterType="BoardDTO" resultType="NoticeDTO">
+		SELECT * FROM NOTICE WHERE NUM=#{num}
 	</select>
 	
-	<insert id="setNotice" parameterType="NoticeDTO">
-		INSERT INTO BANKBOOK VALUES(#{bookNum},#{bookName},#{bookRate},1,#{bookContents})
+	<insert id="setAdd" parameterType="BoardDTO">
+		INSERT INTO NOTICE (NUM, TITLE, WRITER, CONTENTS, REGDATE, HIT)
+		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{writer}, #{contents}, sysdate, 0)
 	</insert>
 	
-	<update id="setUpdate" parameterType="NoticeDTO">
-		UPDATE NOTICE SET
-		NUM = #{num}, TITLE = #{title}, CONTENTS = #{contents},
-		WRITER = #{writer}, REGDATE = #{regDate}, HIT = #{hit}
-		WHERE NUM = #{num}
+	<update id="setUpdate" parameterType="BoardDTO">
+		UPDATE NOTICE SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
 	</update>
 	
-	<delete id="setDelete" parameterType="NoticeDTO">
-		DELETE NOTICE WHERE NUM = #{num}
+	<delete id="setDelete" parameterType="BoardDTO">
+		DELETE NOTICE WHERE NUM=#{num}
 	</delete>
 
 </mapper>
