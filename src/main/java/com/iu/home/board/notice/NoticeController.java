@@ -2,6 +2,8 @@ package com.iu.home.board.notice;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.home.bankMembers.BankMembersDTO;
 import com.iu.home.board.impl.BoardDTO;
 import com.iu.home.board.qna.QnaDTO;
 
@@ -49,8 +52,9 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="add", method=RequestMethod.POST)
-	public ModelAndView setAdd(BoardDTO boardDTO)throws Exception{
+	public ModelAndView setAdd(BoardDTO boardDTO, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		boardDTO.setWriter((((BankMembersDTO)(session.getAttribute("member"))).getUserName()));
 		int result = noticeService.setAdd(boardDTO);
 		mv.setViewName("redirect:./list");
 		return mv;
@@ -75,6 +79,7 @@ public class NoticeController {
 	
 	//글삭제
 	
+	@RequestMapping(value="delete",method=RequestMethod.GET)
 	public String setDelete (BoardDTO boardDTO)throws Exception{
 		int result = noticeService.setDelete(boardDTO);
 
