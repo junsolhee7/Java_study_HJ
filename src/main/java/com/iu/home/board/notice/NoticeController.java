@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iu.home.bankMembers.BankMembersDTO;
 import com.iu.home.board.impl.BoardDTO;
 import com.iu.home.board.qna.QnaDTO;
+import com.iu.home.util.Pager;
 
 @Controller
 @RequestMapping(value="/board/notice/*")
@@ -31,12 +32,14 @@ public class NoticeController {
 
 	//글목록
 	@RequestMapping(value="list", method=RequestMethod.GET)
-	public ModelAndView getList(@RequestParam(defaultValue="1")Long page) throws Exception{
-		
+//	public ModelAndView getList(@RequestParam(defaultValue="1")Long page) throws Exception{
+	public ModelAndView getList(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<BoardDTO> ar = noticeService.getList(page);
+		System.out.println(pager);
+		List<BoardDTO> ar = noticeService.getList(pager);
 		
 		mv.addObject("list",ar);
+		mv.addObject("pager",pager);
 		mv.setViewName("/board/list");
 
 		return mv;
