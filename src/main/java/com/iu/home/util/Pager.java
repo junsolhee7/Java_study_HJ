@@ -51,8 +51,6 @@ public class Pager {
 		this.startNum=(curBlock-1)*this.getPerBlock()+1;
 		this.lastNum = curBlock*this.getPerBlock();
 		
-		
-		
 	}
 	
 	public Long getPerPage() {
@@ -106,9 +104,5 @@ public class Pager {
 	public void setLastRow(Long lastRow) {
 		this.lastRow = lastRow;
 	}
-	
-	
-	
-	
 	
 }

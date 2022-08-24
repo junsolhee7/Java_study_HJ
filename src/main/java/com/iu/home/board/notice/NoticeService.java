@@ -14,8 +14,6 @@ import com.iu.home.util.Pager;
 @Service
 public class NoticeService implements BoardService {
 	
-
-	
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
@@ -123,7 +121,5 @@ public class NoticeService implements BoardService {
 	public Long getCount()throws Exception{
 		return noticeDAO.getCount();
 	}
-
-	
 	
 }
