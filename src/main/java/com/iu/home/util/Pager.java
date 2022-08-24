@@ -10,15 +10,11 @@ public class Pager {
 	 * perPage : 한페이지에 출력할 글의 개수 
 	 * perBlock : 한페이지에 출력할 번호의 개수
 	 * */
-	
 	private Long page;
-	
 	private Long startNum;
 	private Long lastNum;
-	
 	private Long startRow;
 	private Long lastRow;
-	
 	private Long perPage;
 	private Long perBlock;
 	
@@ -27,8 +23,6 @@ public class Pager {
 		this.perBlock=5L;
 	}
 	
-	
-
 	//1. mapper에서 사용할 값 계산
 	public void getRowNum() throws Exception{
 		this.startRow = (this.getPage()-1)*this.getPerPage()+1;
@@ -48,12 +42,12 @@ public class Pager {
 		if(totalPage%this.getPerBlock()!=0) {
 			totalBlock++;
 		}
-		//4. Page로 curBlock찾기
+	//4. Page로 curBlock찾기
 		long curBlock = this.getPage()/this.getPerBlock();
 		if(this.getPage()%this.getPerBlock() !=0) {
 			curBlock++;
 		}
-		//5. curBlock으로 startNum, lastNum 구하기
+	//5. curBlock으로 startNum, lastNum 구하기
 		this.startNum=(curBlock-1)*this.getPerBlock()+1;
 		this.lastNum = curBlock*this.getPerBlock();
 		

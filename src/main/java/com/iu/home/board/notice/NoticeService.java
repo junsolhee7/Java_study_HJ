@@ -29,9 +29,9 @@ public class NoticeService implements BoardService {
 //		System.out.println("Service page: " + page);
 //		Long perPage = 10L;//한페이지에 출력할 목록의 갯수
 //		//Page		startRow 		lastRow
-//		//1			1/1				10/15
-//		//2			11/16			20/30
-//		//3			21/31			30/45
+//		//1			1				10
+//		//2			11				20
+//		//3			21				30
 //		Long startRow = (page-1) * perPage + 1 ;
 //		Long lastRow = page * perPage;
 //		
