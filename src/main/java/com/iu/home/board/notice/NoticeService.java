@@ -34,6 +34,13 @@ public class NoticeService implements BoardService {
 		map.put("startRow", startRow);
 		map.put("lastRow", lastRow);
 		
+		/********************************
+		 * 글의 갯수가 총 53개
+		 * 1-15
+		 * 2-15
+		 * 3-15
+		 * 4-8
+		 */
 		return noticeDAO.getList(map); 
 	}
 	
@@ -56,6 +63,10 @@ public class NoticeService implements BoardService {
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception{
 		return noticeDAO.setDelete(boardDTO);
+	}
+	
+	public Long getCount()throws Exception{
+		return noticeDAO.getCount();
 	}
 
 	

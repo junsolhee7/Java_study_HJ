@@ -19,6 +19,8 @@ public interface BoardDAO {
 	
 	//글삭제
 	public int setDelete(BoardDTO boardDTO)throws Exception;
-	
+
+	//글의 총갯수
+	public Long getCount()throws Exception;
 
 }

@@ -41,4 +41,9 @@ public class NoticeDAO implements BoardDAO {
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		return sqlSession.delete(NAMESPACE+"setDelete", boardDTO);
 	}
+	
+	@Override
+	public Long getCount()throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getCount");
+	}
 }
