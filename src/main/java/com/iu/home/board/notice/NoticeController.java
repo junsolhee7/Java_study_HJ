@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,6 +22,11 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
+	
+	@ModelAttribute("board") //					--(1)
+	public String getBoard() {
+		return "Notice";
+	}
 
 	//글목록
 	@RequestMapping(value="list", method=RequestMethod.GET)
@@ -30,9 +36,8 @@ public class NoticeController {
 		List<BoardDTO> ar = noticeService.getList();
 		
 		mv.addObject("list",ar);
-		mv.addObject("board","Notice");
 		mv.setViewName("/board/list");
-		
+//		mv.addObject("board","Notice");			--(1)
 		return mv;
 	}
 	
@@ -52,6 +57,7 @@ public class NoticeController {
 	
 	@RequestMapping(value="add", method=RequestMethod.GET)
 	public ModelAndView setAdd(ModelAndView mv)throws Exception{
+		
 		mv.addObject("board","Notice");
 		mv.setViewName("/board/add");
 		return mv;

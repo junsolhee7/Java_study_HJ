@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,6 +21,11 @@ public class QnaController {
 	
 	@Autowired
 	private QnaService qnaService;
+	
+	@ModelAttribute("board") //					--(1)
+	public String getBoard() {
+		return "Notice";
+	}
 
 	@RequestMapping(value="list", method=RequestMethod.GET)
 	public ModelAndView getList(ModelAndView mv) throws Exception{
@@ -47,6 +53,7 @@ public class QnaController {
 	
 		@RequestMapping(value="add", method=RequestMethod.GET)
 		public ModelAndView setAdd(ModelAndView mv)throws Exception{
+			
 			mv.addObject("board","QnA");
 			mv.setViewName("/board/add");
 			return mv;
