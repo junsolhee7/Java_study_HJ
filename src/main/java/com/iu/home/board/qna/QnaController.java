@@ -28,7 +28,7 @@ public class QnaController {
 		
 		mv.addObject("board","QnA");
 		mv.addObject("list", ar);
-		mv.setViewName("board1/list");
+		mv.setViewName("board/list");
 		
 		return mv;
 	}
@@ -39,7 +39,7 @@ public class QnaController {
 		qnaDTO = qnaService.getDetail(qnaDTO);
 		mv.addObject("detail",qnaDTO);
 		mv.addObject("board","QnA");
-		mv.setViewName("/board1/detail");
+		mv.setViewName("/board/detail");
 		return mv;
 	}
 	
@@ -48,7 +48,7 @@ public class QnaController {
 		@RequestMapping(value="add", method=RequestMethod.GET)
 		public ModelAndView setAdd(ModelAndView mv)throws Exception{
 			mv.addObject("board","QnA");
-			mv.setViewName("/board1/add");
+			mv.setViewName("/board/add");
 			return mv;
 		}
 		
@@ -68,7 +68,7 @@ public class QnaController {
 			qnaDTO=qnaService.getDetail(qnaDTO);
 			mv.addObject("update",qnaDTO);
 			mv.addObject("board","QnA");
-			mv.setViewName("board1/update");
+			mv.setViewName("board/update");
 			return mv;
 		}		
 		

@@ -31,7 +31,7 @@ public class NoticeController {
 		
 		mv.addObject("list",ar);
 		mv.addObject("board","Notice");
-		mv.setViewName("/board1/list");
+		mv.setViewName("/board/list");
 		
 		return mv;
 	}
@@ -43,7 +43,7 @@ public class NoticeController {
 		boardDTO = noticeService.getDetail(boardDTO);
 		mv.addObject("detail",boardDTO);
 		mv.addObject("board","Notice");
-		mv.setViewName("/board1/detail");
+		mv.setViewName("/board/detail");
 	
 		return mv;
 	}
@@ -53,7 +53,7 @@ public class NoticeController {
 	@RequestMapping(value="add", method=RequestMethod.GET)
 	public ModelAndView setAdd(ModelAndView mv)throws Exception{
 		mv.addObject("board","Notice");
-		mv.setViewName("/board1/add");
+		mv.setViewName("/board/add");
 		return mv;
 	}
 	
@@ -73,7 +73,7 @@ public class NoticeController {
 		boardDTO=noticeService.getDetail(boardDTO);
 		mv.addObject("update",boardDTO);
 		mv.addObject("board","Notice");
-		mv.setViewName("board1/update");
+		mv.setViewName("board/update");
 		return mv;
 	}		
 	
