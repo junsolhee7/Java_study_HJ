@@ -25,11 +25,14 @@ public class NoticeController {
 	//글목록
 	@RequestMapping(value="list", method=RequestMethod.GET)
 	public ModelAndView getList() throws Exception{
+		
 		ModelAndView mv = new ModelAndView();
 		List<BoardDTO> ar = noticeService.getList();
 		
 		mv.addObject("list",ar);
-		mv.setViewName("/board/notice/list");
+		mv.addObject("board","Notice");
+		mv.setViewName("/board1/list");
+		
 		return mv;
 	}
 	
@@ -39,7 +42,8 @@ public class NoticeController {
 		ModelAndView mv = new ModelAndView();
 		boardDTO = noticeService.getDetail(boardDTO);
 		mv.addObject("detail",boardDTO);
-		mv.setViewName("board/notice/detail");
+		mv.addObject("board","Notice");
+		mv.setViewName("/board1/detail");
 	
 		return mv;
 	}
@@ -47,8 +51,10 @@ public class NoticeController {
 	//글작성
 	
 	@RequestMapping(value="add", method=RequestMethod.GET)
-	public String setAdd()throws Exception{
-		return "board/notice/add";
+	public ModelAndView setAdd(ModelAndView mv)throws Exception{
+		mv.addObject("board","Notice");
+		mv.setViewName("/board1/add");
+		return mv;
 	}
 	
 	@RequestMapping(value="add", method=RequestMethod.POST)
@@ -66,7 +72,8 @@ public class NoticeController {
 	public ModelAndView setUpDate(BoardDTO boardDTO, ModelAndView mv)throws Exception{
 		boardDTO=noticeService.getDetail(boardDTO);
 		mv.addObject("update",boardDTO);
-		mv.setViewName("board/notice/update");
+		mv.addObject("board","Notice");
+		mv.setViewName("board1/update");
 		return mv;
 	}		
 	

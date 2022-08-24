@@ -24,7 +24,7 @@
               </c:choose>
               <a class="nav-link" href="/bankbook/list.iu">상품리스트</a>
               <a class="nav-link" href="/member/search">회원검색</a>
-              <a class="nav-link" href="/board/notice/list">NOTICE</a>
+              <a class="nav-link" href="/board/notice/list">공지사항</a>
               <a class="nav-link" href="/board/qna/list">QnA</a>
               
 
