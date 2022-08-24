@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.home.bankMembers.BankMembersDTO;
 import com.iu.home.board.impl.BoardDTO;
+import com.iu.home.board.notice.NoticeDTO;
 
 @Controller
 @RequestMapping(value="/board/qna/*")
@@ -53,7 +54,7 @@ public class QnaController {
 	
 		@RequestMapping(value="add", method=RequestMethod.GET)
 		public ModelAndView setAdd(ModelAndView mv)throws Exception{
-			
+
 			mv.addObject("board","QnA");
 			mv.setViewName("/board/add");
 			return mv;

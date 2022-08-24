@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.home.bankMembers.BankMembersDTO;
@@ -23,21 +24,21 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	@ModelAttribute("board") //					--(1)
+	@ModelAttribute("board") //					--(1)mv.addObject("board","Notice");
 	public String getBoard() {
 		return "Notice";
 	}
 
 	//글목록
 	@RequestMapping(value="list", method=RequestMethod.GET)
-	public ModelAndView getList() throws Exception{
+	public ModelAndView getList(@RequestParam(defaultValue="1")Long page) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
-		List<BoardDTO> ar = noticeService.getList();
+		List<BoardDTO> ar = noticeService.getList(page);
 		
 		mv.addObject("list",ar);
 		mv.setViewName("/board/list");
-//		mv.addObject("board","Notice");			--(1)
+
 		return mv;
 	}
 	
