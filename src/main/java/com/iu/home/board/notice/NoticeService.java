@@ -20,9 +20,9 @@ public class NoticeService implements BoardService {
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception{
 		
-		pager.getRowNum();
 		Long totalCount=noticeDAO.getCount();
 		pager.getNum(totalCount);
+		pager.getRowNum();
 		
 //		System.out.println("Service page: " + page);
 //		Long perPage = 10L;//한페이지에 출력할 목록의 갯수
