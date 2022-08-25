@@ -20,7 +20,7 @@ import com.iu.home.board.notice.NoticeDTO;
 import com.iu.home.util.Pager;
 
 @Controller
-@RequestMapping(value="/board/qna/*")
+@RequestMapping(value="/qna/*")
 public class QnaController {
 	
 	@Autowired
@@ -100,7 +100,7 @@ public class QnaController {
 			qnaDTO=qnaService.getDetail(qnaDTO);
 			mv.addObject("update",qnaDTO);
 			mv.addObject("board","QnA");
-			mv.setViewName("board/update");
+			mv.setViewName("/board/update");
 			return mv;
 		}		
 		
