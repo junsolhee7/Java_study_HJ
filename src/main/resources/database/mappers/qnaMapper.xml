@@ -13,7 +13,19 @@
         	</choose>
         	LIKE '%' || #{search} ||'%'
    	</sql>
-
+   	
+   	<insert id="setReplyAdd" parameterType="QnaDTO">
+   		<selectKey keyProperty="num" order="BEFORE" resultType="long">
+			SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+   		INSERT INTO QNA (NUM, TITLE, WRITER, CONTENTS, REGDATE, HIT,REF,STEP,DEPTH)
+		VALUES (#{num}, #{title}, #{writer}, #{contents}, sysdate, 0, #{ref}, #{step}, #{depth})
+   	</insert>
+   	
+   	<update id="setStepUpdate" parameterType="QnaDTO">
+		UPDATE QNA SET STEP=STEP+1 WHERE REF=#{ref} AND STEP>#{step}   	
+   	</update>
+   	
 	<select id="getList" resultType="QnaDTO" parameterType="Pager">
 		SELECT * FROM
     	(
@@ -38,8 +50,11 @@
 	</select>
 	
 	<insert id="setAdd" parameterType="QnaDTO">
+		<selectKey keyProperty="num" order="BEFORE" resultType="long">
+			SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		INSERT INTO QNA (NUM, TITLE, WRITER, CONTENTS, REGDATE, HIT,REF,STEP,DEPTH)
-		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{writer}, #{contents}, sysdate, 0, 0, 0, 0)
+		VALUES (#{num}, #{title}, #{writer}, #{contents}, sysdate, 0, #{num}, 0, 0)
 	</insert>
 	
 	<update id="setUpdate" parameterType="QnaDTO">

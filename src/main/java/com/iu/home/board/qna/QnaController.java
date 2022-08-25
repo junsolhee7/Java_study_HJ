@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,6 +31,21 @@ public class QnaController {
 		return "Qna";
 	}
 
+	@PostMapping("reply")
+	public String setReply(QnaDTO qnaDTO,HttpSession session)throws Exception{
+		qnaDTO.setWriter((((BankMembersDTO)(session.getAttribute("member"))).getUserName()));
+		int result=qnaService.setReply(qnaDTO);
+		return "redirect:./list";
+	}
+	
+	@GetMapping("reply")
+	public ModelAndView setReply(QnaDTO qnaDTO, ModelAndView mv)throws Exception{
+		mv.setViewName("board/reply");
+		mv.addObject("qnaDTO",qnaDTO);
+		return mv;
+		
+	}
+	
 	//글목록
 	@RequestMapping(value="list", method=RequestMethod.GET)
 //	public ModelAndView getList(@RequestParam(defaultValue="1")Long page) throws Exception{

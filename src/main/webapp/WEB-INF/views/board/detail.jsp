@@ -38,6 +38,7 @@
 	
 	</table>
 	
+	<a href="../qna/reply?num=${qnaDTO.num}" class="btn btn-danger">댓글</a>
 	
 	<!-- 상대경로 -->
 	<a href="./list">뒤로가기</a>

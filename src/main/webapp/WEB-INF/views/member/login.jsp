@@ -15,7 +15,7 @@
 		<div class="row">
 			<form action="./login" method="post">
 			  <div class="mb-3">
-			    <label for="exampleInputEmail1" class="form-label">아이디</label>
+			    <label for="exampleInputEmail1" class="form-label" value="제">아이디</label>
 			    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="userName">
 			    <div id="emailHelp" class="form-text">We'll never share your ID with anyone else.</div>
 			  </div>
