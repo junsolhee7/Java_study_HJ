@@ -32,7 +32,7 @@
         	SELECT ROWNUM R,N.* FROM
             	(SELECT * FROM QNA
             	<include refid="search"></include>
-             	ORDER BY NUM DESC) N        
+             	ORDER BY REF DESC, STEP ASC) N        
     	)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 		

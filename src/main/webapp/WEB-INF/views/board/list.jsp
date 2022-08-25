@@ -59,7 +59,14 @@
 			<c:forEach items="${requestScope.list}" var="dto">
 				<tr>
 					<td class="table-secondary">${pageScope.dto.num}</td>
-					<td class="table-success"><a href="./detail?num=${dto.num}">${pageScope.dto.title}</a></td>
+					
+					<td class="table-success">
+					<c:catch>
+					<c:forEach begin="1" end="${dto.depth}">&emsp;</c:forEach>
+					</c:catch>
+					<a href="./detail?num=${dto.num}">${pageScope.dto.title}</a>
+					</td>
+					
 					<td class="table-warning">${pageScope.dto.writer}</td>
 					<td class="table-primary">${pageScope.dto.regDate}</td>
 					<td class="table-secondary">${pageScope.dto.hit}</td>
