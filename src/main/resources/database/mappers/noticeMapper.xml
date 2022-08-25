@@ -8,10 +8,32 @@
 	<select id="getList" resultType="NoticeDTO" parameterType="Pager">
 		SELECT * FROM
     	(
-        SELECT ROWNUM R,N.* FROM
-            (SELECT * FROM NOTICE ORDER BY NUM DESC) N        
+        	SELECT ROWNUM R,N.* FROM
+            	(SELECT * FROM NOTICE
+            	WHERE
+            	<choose>
+            		<when test="kind=='title'">TITLE</when>
+            		<when test="kind=='writer'">WRITER</when>
+            		<otherwise>CONTENTS</otherwise>
+            	</choose>
+            	
+            	LIKE '%' || #{search} ||'%'
+             	ORDER BY NUM DESC) N        
     	)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
+		
+	</select>
+	
+	<select id="getCount" resultType="Long" parameterType="Pager">
+		SELECT COUNT(NUM) FROM NOTICE
+			WHERE
+            	<choose>
+            		<when test="kind=='title'">TITLE</when>
+            		<when test="kind=='writer'">WRITER</when>
+            		<otherwise>CONTENTS</otherwise>
+            	</choose>
+           	LIKE '%' || #{search} ||'%'
+           	
 	</select>
 	
 	<select id="getDetail" parameterType="BoardDTO" resultType="NoticeDTO">
@@ -31,8 +53,5 @@
 		DELETE NOTICE WHERE NUM=#{num}
 	</delete>
 	
-	<select id="getCount" resultType="Long">
-		SELECT COUNT(NUM) FROM NOTICE
-	</select>
 
 </mapper>

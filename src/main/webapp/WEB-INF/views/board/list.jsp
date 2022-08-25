@@ -12,6 +12,34 @@
 <c:import url="../template/header.jsp"></c:import>
 
 	<h1>${board} List Page</h1>
+	<div class="row mb-3">
+		<form action="./list" method="get" class="row row-cols-lg-auto g-3 align-items-center">
+		
+		  <div class="col-12">
+		    <label class="visually-hidden" for="kind">Preference</label>
+		    <select name = "kind" class="form-select" id="kind">
+		      <option value="contents">Contents</option>
+		      <option value="title">Title</option>
+		      <option value="writer">Writer</option>
+		    </select>
+		  </div>
+		
+		
+		  <div class="col-12">
+		    <label class="visually-hidden" for="search">검색어</label>
+		    <div class="input-group">
+		      <input type="text" name = "search" class="form-control" id="search" >
+		    </div>
+		  </div>
+		  
+		  <div class="col-12">
+		    <button type="submit" class="btn btn-primary">Submit</button>
+		  </div>
+		</form>
+	</div>
+	
+	
+	
 	<table class="table table-sm">
 		<thead>
 			<tr class="table-info">
@@ -45,7 +73,7 @@
 	  <ul class="pagination">
 	  <c:if test="${pager.pre}">
 	    <li class="page-item">
-	      <a class="page-link" href="./list?page=${pager.startNum-1}" aria-label="Previous">
+	      <a class="page-link" href="./list?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
 	        <span aria-hidden="true">&laquo;</span>
 	      </a>
 	    </li>
@@ -64,7 +92,7 @@
 	    </c:choose> --%>
 	    
 	    <li class="page-item ${pager.next?'':'disabled'}">
-	      <a class="page-link" href="./list?page=${pager.lastNum+1}" aria-label="Next">
+	      <a class="page-link" href="./list?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
 	        <span aria-hidden="true">&raquo;</span>
 	      </a>
 	    </li>
