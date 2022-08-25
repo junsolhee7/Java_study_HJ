@@ -33,7 +33,7 @@ public class HomeController {
 	public String home(HttpServletResponse response) {
 
 		Cookie cookie = new Cookie("hi","hello");
-		cookie.setMaxAge(600);
+		cookie.setMaxAge(7200);
 		response.addCookie(cookie);
 		System.out.println(sqlSession);
 		
