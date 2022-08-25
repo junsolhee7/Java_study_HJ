@@ -46,4 +46,8 @@ public class QnaDAO {
 	public int setStepUpdate(QnaDTO qnaDTO)throws Exception{
 		return sqlSession.update(NAMESPACE+"setStepUpdate",qnaDTO);
 	}
+	
+	public int setHitUpdate(QnaDTO qnaDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"setHitUpdate",qnaDTO);
+	}
 }

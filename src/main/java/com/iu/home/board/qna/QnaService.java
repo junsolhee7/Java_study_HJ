@@ -55,6 +55,9 @@ public class QnaService {
 	public int setDelete(QnaDTO qnaDTO) throws Exception{
 		return qnaDAO.setDelete(qnaDTO);
 	}
+	public int setHitUpdate(QnaDTO qnaDTO) throws Exception{
+		return qnaDAO.setHitUpdate(qnaDTO);
+	}
 
 	
 }
