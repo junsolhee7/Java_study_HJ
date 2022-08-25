@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.iu.home.board.impl.BoardDTO;
+import com.iu.home.util.Pager;
 
 @Repository
 public class QnaDAO {
@@ -15,8 +16,12 @@ public class QnaDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.home.board.qna.QnaDAO.";
 	
-	public List<QnaDTO> getList()throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList");
+	public Long getCount(Pager pager)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getCount",pager);
+	}
+	
+	public List<QnaDTO> getList(Pager pager)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getList",pager);
 	}
 	public QnaDTO getDetail(QnaDTO qnaDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getDetail",qnaDTO);

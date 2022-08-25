@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iu.home.bankMembers.BankMembersDTO;
 import com.iu.home.board.impl.BoardDTO;
 import com.iu.home.board.notice.NoticeDTO;
+import com.iu.home.util.Pager;
 
 @Controller
 @RequestMapping(value="/board/qna/*")
@@ -25,20 +26,26 @@ public class QnaController {
 	
 	@ModelAttribute("board") //					--(1)
 	public String getBoard() {
-		return "Notice";
+		return "Qna";
 	}
 
+	//글목록
 	@RequestMapping(value="list", method=RequestMethod.GET)
-	public ModelAndView getList(ModelAndView mv) throws Exception{
+//	public ModelAndView getList(@RequestParam(defaultValue="1")Long page) throws Exception{
+	public ModelAndView getList(Pager pager) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println(pager);
+		System.out.println(pager.getKind());
+		System.out.println(pager.getSearch());
+		List<QnaDTO> ar = qnaService.getList(pager);
 		
-		List<QnaDTO> ar = qnaService.getList();
-		
-		mv.addObject("board","QnA");
-		mv.addObject("list", ar);
-		mv.setViewName("board/list");
-		
+		mv.addObject("list",ar);
+		mv.addObject("pager",pager);
+		mv.setViewName("/board/list");
+
 		return mv;
 	}
+
 	
 	@RequestMapping(value="detail", method=RequestMethod.GET)
 	public ModelAndView getDetail(QnaDTO qnaDTO) throws Exception{
