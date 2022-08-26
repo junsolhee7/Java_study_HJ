@@ -13,7 +13,7 @@
 	<section class="container-fluid col-lg-2 mt-5">
 	    <div class="row">
 	    	<h1>회원가입</h1>
-	        <form action="join.iu" method="post" >
+	        <form action="join.iu" method="post" enctype="multipart/form-data">
 	            <h4>아이디</h4>
 	            <input type="text" name="userName" class="form-control">
 	            <h4>비밀번호</h4>
@@ -29,6 +29,9 @@
 	            <div>
 	                <input type = "submit" value="가입하기">
 	            </div>
+	            
+	            <h4>사진</h4>
+	            <input type="file" name="photo" class="form-control" id="photo">
 	        </form>
 	    </div>
     </section>

@@ -20,7 +20,9 @@
 			글제목 : <input type="text" name="title" value="${requestScope.update.title}" >
 		</div>
 		<div>
-			글내용 : <input type="text" name="contents" value="${requestScope.update.contents}">
+			<%-- 글내용 : <input type="text" name="contents" value="${requestScope.update.contents}"> --%>
+					
+			글내용 : <textarea class="form-control" name="contents" rows="3">$"update.contents"</textarea><br>
 		</div>
 		<div>
 			작성자 :<input type="text" name="writer" readonly value="${requestScope.update.writer}" >

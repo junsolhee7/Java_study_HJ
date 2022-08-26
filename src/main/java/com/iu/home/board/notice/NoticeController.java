@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.home.bankMembers.BankMembersDTO;
@@ -70,7 +71,7 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="add", method=RequestMethod.POST)
-	public ModelAndView setAdd(BoardDTO boardDTO, HttpSession session)throws Exception{
+	public ModelAndView setAdd(BoardDTO boardDTO, HttpSession session, MultipartFile [] files)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		boardDTO.setWriter((((BankMembersDTO)(session.getAttribute("member"))).getUserName()));
 		int result = noticeService.setAdd(boardDTO);

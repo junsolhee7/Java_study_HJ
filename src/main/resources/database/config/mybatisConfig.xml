@@ -23,6 +23,8 @@
  		<typeAlias type="com.iu.home.board.qna.QnaDTO" alias="QnaDTO"/>
  		<typeAlias type="com.iu.home.board.qna.QnaDAO" alias="QnaDAO"/>
  		
+ 		<typeAlias type="com.iu.home.bankMembers.BankMembersFileDTO" alias="BankMembersFileDTO"/>
+ 		
  		<typeAlias type="com.iu.home.util.Pager" alias="Pager"/>
  		
  		<typeAlias type="java.lang.String" alias="String"/>

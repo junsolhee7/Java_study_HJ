@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.home.bankAccount.BankAccountDTO;
@@ -33,7 +34,6 @@ public class MembersController {
 		BankMembersDTO bankMembersDTO = (BankMembersDTO)session.getAttribute("member");
 //		Map<String,Object> map = bankMembersService.getMyPage(bankMembersDTO);
 //		mv.addObject("map",map);
-		
 		bankMembersDTO = bankMembersService.getMyPage(bankMembersDTO);
 //		List<BankAccountDTO> ar = bankAccountService.getListByUserName(bankMembersDTO);
 //		
@@ -52,9 +52,13 @@ public class MembersController {
 	}
 	
 	@RequestMapping(value="join", method=RequestMethod.POST)
-	public String join(BankMembersDTO bankMembersDTO) throws Exception{
+	public String join(BankMembersDTO bankMembersDTO,MultipartFile photo) throws Exception{
 		System.out.println("join POST 실행");
-		int result = bankMembersService.setJoin(bankMembersDTO);
+		System.out.println("upload 파일명 : " + photo.getOriginalFilename());
+		System.out.println("upload 파라미터명 : " + photo.getName());
+		System.out.println("upload 파일 크기"+ photo.getSize());
+		
+		int result = bankMembersService.setJoin(bankMembersDTO,photo);
 		
 		return "member/join";
 	}
