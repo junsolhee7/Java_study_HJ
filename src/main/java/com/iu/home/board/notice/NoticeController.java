@@ -74,7 +74,7 @@ public class NoticeController {
 	public ModelAndView setAdd(BoardDTO boardDTO, HttpSession session, MultipartFile [] files)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		boardDTO.setWriter((((BankMembersDTO)(session.getAttribute("member"))).getUserName()));
-		int result = noticeService.setAdd(boardDTO);
+		int result = noticeService.setAdd(boardDTO,files);
 		mv.setViewName("redirect:./list");
 		return mv;
 	}

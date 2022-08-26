@@ -2,7 +2,9 @@ package com.iu.home.board.impl;
 
 import java.sql.Date;
 
-public class BoardDTO {
+import com.iu.home.file.FileDTO;
+
+public class BoardDTO extends FileDTO {
 	
 	private Long num;
 	private String title;
