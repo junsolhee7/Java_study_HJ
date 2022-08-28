@@ -38,6 +38,11 @@
 	
 	</table>
 	
+		<div class="row">
+			<img alt="" src="../resources/upload/member/${dto.bankMembersFileDTO.fileName}">
+		</div>
+	
+	
 	<a href="../qna/reply?num=${qnaDTO.num}" class="btn btn-danger">댓글</a>
 	
 	<!-- 상대경로 -->

@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.iu.home.util.Pager;
+
 public class NoticeDAOTest {
 
 	@Autowired
@@ -28,8 +30,8 @@ public class NoticeDAOTest {
 //	}
 	
 	@Test
-	public void getCountTest() throws Exception{
-			long count = noticeDAO.getCount();
+	public void getCountTest(Pager pager) throws Exception{
+			long count = noticeDAO.getCount(pager);
 			assertEquals(102L,count);
 	}
 }

@@ -13,6 +13,17 @@
         	</choose>
         	LIKE '%' || #{search} ||'%'
    	</sql>
+   	
+   	<select id="getNum" resultType="NoticeFileDTO" parameterType="NoticeFileDTO">
+	
+		SELECT NUM FROM NOTICEFILE WHERE FILENAME=#{fileName}
+		
+	</select>
+   	
+	<insert id="setAddFile" parameterType="NoticeFileDTO">
+		INSERT INTO NOTICEFILE (FILENUM, NUM, FILENAME, ORINAME) 
+		VALUES(FILE_SEQ.NEXTVAL, FILE_SEQ.CURRVAL, #{fileName}, #{oriName})
+	</insert>
 
 	<select id="getList" resultType="NoticeDTO" parameterType="Pager">
 		SELECT * FROM
@@ -39,7 +50,7 @@
 	
 	<insert id="setAdd" parameterType="BoardDTO">
 		INSERT INTO NOTICE (NUM, TITLE, WRITER, CONTENTS, REGDATE, HIT)
-		VALUES (BOARD_SEQ.NEXTVAL, #{title}, #{writer}, #{contents}, sysdate, 0)
+		VALUES (#{num}, #{title}, #{writer}, #{contents}, sysdate, 0)
 	</insert>
 	
 	<update id="setUpdate" parameterType="BoardDTO">

@@ -54,6 +54,7 @@ public class NoticeController {
 		ModelAndView mv = new ModelAndView();
 		boardDTO = noticeService.getDetail(boardDTO);
 		mv.addObject("detail",boardDTO);
+		
 		mv.addObject("board","Notice");
 		mv.setViewName("/board/detail");
 	
@@ -75,6 +76,7 @@ public class NoticeController {
 		ModelAndView mv = new ModelAndView();
 		boardDTO.setWriter((((BankMembersDTO)(session.getAttribute("member"))).getUserName()));
 		int result = noticeService.setAdd(boardDTO,files);
+		mv.addObject("dto",boardDTO);
 		mv.setViewName("redirect:./list");
 		return mv;
 	}

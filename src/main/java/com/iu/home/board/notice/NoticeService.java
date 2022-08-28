@@ -1,9 +1,12 @@
 package com.iu.home.board.notice;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.ServletContext;
 
@@ -11,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.iu.home.bankMembers.BankMembersFileDTO;
 import com.iu.home.board.impl.BoardDTO;
 import com.iu.home.board.impl.BoardService;
 import com.iu.home.util.Pager;
@@ -119,21 +123,45 @@ public class NoticeService implements BoardService {
 		String realPath = servletContext.getRealPath("resources/upload/notice");
 		System.out.println(realPath);
 		//2.폴더 확인
-		File file = new File(realPath);
-		if(!file.exists()) {
-			file.mkdirs();
-		}
+		
 		//3.
+		ArrayList<Integer> ar = new ArrayList();
 		for(MultipartFile mf : files) {
 			if(mf.isEmpty()) {
 				continue;
 			}
+			File file = new File(realPath);
+			if(!file.exists()) {
+				file.mkdirs();
+			}
+			String fileName = UUID.randomUUID().toString();
 			
-			//저장하는코드
+			Calendar ca = Calendar.getInstance();
+			Long time = ca.getTimeInMillis();
+			
+			fileName = fileName+"_"+mf.getOriginalFilename();
+			
+			file = new File(file,fileName);
+			
+			mf.transferTo(file);
+			
+			//HD저장하는코드
+
+			NoticeFileDTO noticeFileDTO = new NoticeFileDTO();
+
+			noticeFileDTO.setFileName(fileName);
+
+			noticeFileDTO.setOriName(mf.getOriginalFilename());
+
+			noticeDAO.setAddFile(noticeFileDTO);
+
+//			DB저장하는코드
+			
+			boardDTO.setNum(noticeDAO.getNum(noticeFileDTO).getNum());
 		}
+		noticeDAO.setAdd(boardDTO);
+		return 0;
 		
-		
-		return 0; //noticeDAO.setAdd(boardDTO); 임시
 	}
 
 	@Override
