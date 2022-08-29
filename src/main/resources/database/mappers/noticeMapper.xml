@@ -22,7 +22,7 @@
    	
 	<insert id="setAddFile" parameterType="NoticeFileDTO">
 		INSERT INTO NOTICEFILE (FILENUM, NUM, FILENAME, ORINAME) 
-		VALUES(FILE_SEQ.NEXTVAL, FILE_SEQ.CURRVAL, #{fileName}, #{oriName})
+		VALUES(FILE_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
 	</insert>
 
 	<select id="getList" resultType="NoticeDTO" parameterType="Pager">
@@ -49,6 +49,9 @@
 	</select>
 	
 	<insert id="setAdd" parameterType="BoardDTO">
+		<selectKey order = "BEFORE" keyProperty = "num" resultType="Long">
+			SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		INSERT INTO NOTICE (NUM, TITLE, WRITER, CONTENTS, REGDATE, HIT)
 		VALUES (#{num}, #{title}, #{writer}, #{contents}, sysdate, 0)
 	</insert>

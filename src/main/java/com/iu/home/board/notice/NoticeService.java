@@ -119,6 +119,8 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public int setAdd(BoardDTO boardDTO, MultipartFile [] files) throws Exception{
+		int result = noticeDAO.setAdd(boardDTO);
+		
 		//1.실제 경로
 		String realPath = servletContext.getRealPath("resources/upload/notice");
 		System.out.println(realPath);
@@ -150,17 +152,16 @@ public class NoticeService implements BoardService {
 			NoticeFileDTO noticeFileDTO = new NoticeFileDTO();
 
 			noticeFileDTO.setFileName(fileName);
-
 			noticeFileDTO.setOriName(mf.getOriginalFilename());
+			noticeFileDTO.setNum(boardDTO.getNum());
 
 			noticeDAO.setAddFile(noticeFileDTO);
 
 //			DB저장하는코드
 			
-			boardDTO.setNum(noticeDAO.getNum(noticeFileDTO).getNum());
 		}
-		noticeDAO.setAdd(boardDTO);
-		return 0;
+		
+		return result;
 		
 	}
 
