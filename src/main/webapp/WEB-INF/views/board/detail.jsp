@@ -39,7 +39,11 @@
 	</table>
 	
 		<div class="row">
-			<img alt="" src="../resources/upload/member/${dto.bankMembersFileDTO.fileName}">
+			<c:forEach items="${detail.boardFileDTOs}" var="fileDTO">
+				<p>
+				<a href="../resources/upload/${board}/${fileDTO.fileName}">${fileDTO.oriName}</a>
+				</p>
+			</c:forEach>
 		</div>
 	
 	

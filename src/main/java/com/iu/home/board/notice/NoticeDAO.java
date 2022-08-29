@@ -25,8 +25,8 @@ public class NoticeDAO implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE+"getNum",noticeFileDTO);
 	}
 	
-	public int setAddFile(NoticeFileDTO noticeFileDTO) throws Exception{
-		return sqlSession.insert(NAMESPACE+"setAddFile", noticeFileDTO);
+	public int setAddFile(BoardFileDTO boardFileDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setAddFile", boardFileDTO);
 	}     
 	
 	@Override
@@ -58,8 +58,4 @@ public class NoticeDAO implements BoardDAO {
 	public Long getCount(Pager pager)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getCount",pager);
 	}
-	@Override
-	public int setAddFile(BoardFileDTO boardFileDTO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"setAddFile",boardFileDTO); 
-	};
 }

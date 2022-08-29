@@ -1,6 +1,7 @@
 package com.iu.home.board.impl;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.iu.home.file.FileDTO;
 
@@ -13,9 +14,18 @@ public class BoardDTO extends FileDTO {
 	private Date regDate;
 	private Long hit;
 	private BoardFileDTO boardFileDTO;
+	private List<BoardFileDTO> boardFileDTOs;
 	
 	
 	
+	
+	
+	public List<BoardFileDTO> getBoardFileDTOs() {
+		return boardFileDTOs;
+	}
+	public void setBoardFileDTOs(List<BoardFileDTO> boardFileDTOs) {
+		this.boardFileDTOs = boardFileDTOs;
+	}
 	public BoardFileDTO getBoardFileDTO() {
 		return boardFileDTO;
 	}

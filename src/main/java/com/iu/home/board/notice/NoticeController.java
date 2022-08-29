@@ -28,7 +28,7 @@ public class NoticeController {
 	
 	@ModelAttribute("board") //					--(1)mv.addObject("board","Notice");
 	public String getBoard() {
-		return "Notice";
+		return "notice";
 	}
 
 	//글목록
@@ -75,7 +75,7 @@ public class NoticeController {
 	public ModelAndView setAdd(BoardDTO boardDTO, HttpSession session, MultipartFile [] files)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		boardDTO.setWriter((((BankMembersDTO)(session.getAttribute("member"))).getUserName()));
-		int result = noticeService.setAdd(boardDTO,files);
+		int result = noticeService.setAdd(boardDTO,files,session.getServletContext());
 		mv.addObject("dto",boardDTO);
 		mv.setViewName("redirect:./list");
 		return mv;
