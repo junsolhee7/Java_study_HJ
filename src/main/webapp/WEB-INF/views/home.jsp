@@ -11,6 +11,9 @@
 	<h1>Index Page</h1>
 	<hr>
 	
+	<h3>ADD JSCODE</h3>
+
+
 	<c:if test="${empty sessionScope.member}">
 	<a href="./member/join">join</a>
 	<a href="./member/login">login</a>
