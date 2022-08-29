@@ -71,7 +71,7 @@ public class QnaController {
 		qnaDTO = qnaService.getDetail(qnaDTO);
 		
 		mv.addObject("detail",qnaDTO);
-		mv.addObject("board","QnA");
+		mv.addObject("board","qna");
 		mv.setViewName("/board/detail");
 		return mv;
 	}

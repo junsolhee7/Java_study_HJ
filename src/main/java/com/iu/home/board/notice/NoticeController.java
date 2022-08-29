@@ -55,7 +55,7 @@ public class NoticeController {
 		boardDTO = noticeService.getDetail(boardDTO);
 		mv.addObject("detail",boardDTO);
 		
-		mv.addObject("board","Notice");
+		mv.addObject("board","notice");
 		mv.setViewName("/board/detail");
 	
 		return mv;
