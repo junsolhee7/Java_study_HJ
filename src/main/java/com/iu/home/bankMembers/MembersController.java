@@ -46,9 +46,14 @@ public class MembersController {
 	}
 	
 	
-	@RequestMapping(value="join", method=RequestMethod.GET)
-	public String join() {
-		System.out.println("join GET 실행");
+	@RequestMapping(value="agree", method=RequestMethod.GET)
+	public String getAgree() {
+		System.out.println("agree GET 실행");
+		return "member/agree";
+	}
+	@RequestMapping(value="agree", method=RequestMethod.POST)
+	public String agree() {
+		System.out.println("Agree Post 실행");
 		return "member/join";
 	}
 	

@@ -19,7 +19,7 @@
 	              	</c:when>
 	              	<c:otherwise>
 	              		<a class="nav-link" href="/member/login">로그인</a>
-	              		<a class="nav-link" href="/member/join">회원가입</a>
+	              		<a class="nav-link" href="/member/agree">회원가입</a>
 	              	</c:otherwise>
               </c:choose>
               <a class="nav-link" href="/bankbook/list.iu">상품리스트</a>
