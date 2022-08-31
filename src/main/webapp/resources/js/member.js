@@ -31,6 +31,7 @@ function loginCheck(){
     // }
     
 }
+//agree------------------------------------------------------------------------
 const all = document.getElementById("all");
 const cb = document.getElementsByClassName("cb");
 const ca = document.getElementsByClassName("ca");
