@@ -11,13 +11,23 @@ for(let i=0;i<ch.length;i++){
 
 all.addEventListener("click",function(){
     for(let i=0;i<cb.length;i++){
-        cb[i].checked=true;
+        cb[i].checked=all.checked;
     }
 })
 
+//--------------------------------
+for(let i=0; i<cb.length;i++){
+    cb[i].addEventListener("click", check);
+}
 
-all.addEventListener("",function(){
-    for(let i=0;i<cb.length;i++){
-        cb[i].checked=false;
+function check(){
+    let result = true;
+    for(let i=0; i<cb.length; i++){
+        console.log(cb[i].checked);
+        if(!cb[i].checked){
+            result=false;
+            break;
+        }
     }
-})
+    all.checked=result;
+}
