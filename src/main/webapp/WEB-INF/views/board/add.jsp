@@ -28,10 +28,13 @@
 		글제목 <input type="text" name="title" ><br>
 		<!-- 글내용 <input type="text" name="contents"><br> -->
 		글내용 <textarea class="form-control" name="contents" id="contents" rows="3"></textarea><br>
-         <input type="file" name="files" class="form-control" id="files">
-         <input type="file" name="files" class="form-control" id="files">
-         <input type="file" name="files" class="form-control" id="files">
-		
+
+		<div id="addFiles">
+			<button type="button" class="table-dangerous" id="fileAdd">파일추가</button>
+		</div>
+         <!-- <input type="file" name="files" class="form-control" id="addFiles">
+         <input type="file" name="files" class="form-control" id="addFiles">
+         <input type="file" name="files" class="form-control" id="addFiles"> -->
 		
 		<input type="submit" value="입력">
 		<button type="submit">Add</button>
@@ -43,5 +46,6 @@
 <script type="text/javascript">
 	$("contents").summernote();
 </script>
+<script src="/resources/js/add.js"></script>
 </body>
 </html>
