@@ -31,7 +31,7 @@
 
 		<div id="addFiles">
 			<button type="button" class="btn-danger" id="fileAdd">파일추가</button>
-			<!-- <input type="file" name="files" class="form-control" id="addFiles">
+		<!--<input type="file" name="files" class="form-control" id="addFiles">
 			<input type="file" name="files" class="form-control" id="addFiles">
 			<input type="file" name="files" class="form-control" id="addFiles"> -->
 		</div>

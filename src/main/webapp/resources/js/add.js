@@ -90,9 +90,7 @@ fileAdd.addEventListener("click",function(){
 addFiles.addEventListener("click",function(event){
     if(event.target.classList[0]=='del'){
         alert("DELETE");
-
-        console.log("event:",event);
-        console.log("event.target:",event.target);
-        console.log("event.currentTarget:",event.currentTarget);
+        
+        console.log('');
     }
 });
