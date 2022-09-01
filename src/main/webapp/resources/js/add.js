@@ -3,11 +3,12 @@ const addFiles = document.getElementById("addFiles");
 
 
 let count=0;
+let idx=0;
 
 fileAdd.addEventListener("click",function(){
-    count++;
-    if(count>5){
-        alert("최대 5개만가능");
+    
+    if(count>4){
+        alert("최대 5개만 가능...");
         return;
     }
     // <div class="mb-3">
@@ -21,6 +22,10 @@ fileAdd.addEventListener("click",function(){
     let c = document.createAttribute("class"); //class=""
     c.value="mb-3"; //class="mb-3"
     div.setAttributeNode(c); //<div class="mb-3"></div>
+    c = document.createAttribute("id");
+    c.value="file"+idx;
+    div.setAttributeNode(c); //<div id=""></div>
+
     
     //자식 Element Label 생성
     let label = document.createElement("label");            //<label></label>
@@ -67,14 +72,27 @@ fileAdd.addEventListener("click",function(){
     button.setAttributeNode(buttonAttr);
 
     buttonAttr = document.createAttribute("class");
-    buttonAttr.value="del";
+    buttonAttr.value="del btn btn-danger";
+    button.setAttributeNode(buttonAttr);
+
+    buttonAttr = document.createAttribute("title");
+    buttonAttr.value = idx;
     button.setAttributeNode(buttonAttr);
 
     div.appendChild(button);
     
     addFiles.append(div);
+
+    count++;
+    idx++;
 });
 
-// addFiles.addEventListener("click",function(){
-//     alert("ㅇㅅㅇ");
-// })
+addFiles.addEventListener("click",function(event){
+    if(event.target.classList[0]=='del'){
+        alert("DELETE");
+
+        console.log("event:",event);
+        console.log("event.target:",event.target);
+        console.log("event.currentTarget:",event.currentTarget);
+    }
+});

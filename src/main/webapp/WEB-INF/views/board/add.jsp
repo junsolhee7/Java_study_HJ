@@ -30,12 +30,11 @@
 		글내용 <textarea class="form-control" name="contents" id="contents" rows="3"></textarea><br>
 
 		<div id="addFiles">
-			<button type="button" class="btn-dangerous" id="fileAdd">파일추가</button>
+			<button type="button" class="btn-danger" id="fileAdd">파일추가</button>
+			<!-- <input type="file" name="files" class="form-control" id="addFiles">
+			<input type="file" name="files" class="form-control" id="addFiles">
+			<input type="file" name="files" class="form-control" id="addFiles"> -->
 		</div>
-		
-         <!-- <input type="file" name="files" class="form-control" id="addFiles">
-         <input type="file" name="files" class="form-control" id="addFiles">
-         <input type="file" name="files" class="form-control" id="addFiles"> -->
 		
 		<input type="submit" value="입력">
 		<button type="submit">Add</button>
