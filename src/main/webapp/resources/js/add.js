@@ -85,7 +85,7 @@ fileAdd.addEventListener("click",function(){
 
     count++;
     idx++;
-});
+});3
 
 addFiles.addEventListener("click",function(event){
     let b = event.target;
