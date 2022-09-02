@@ -88,9 +88,9 @@ fileAdd.addEventListener("click",function(){
 });
 
 addFiles.addEventListener("click",function(event){
-    if(event.target.classList[0]=='del'){
-        alert("DELETE");
-        
-        console.log('');
-    }
+    let b = event.target;
+    if(b.classList[0]=='del'){
+        document.getElementById("file"+b.title).remove();
+        count--;
+    };
 });
