@@ -26,6 +26,7 @@
               <a class="nav-link" href="/member/search">회원검색</a>
               <a class="nav-link" href="/notice/list">공지사항</a>
               <a class="nav-link" href="/qna/list">QnA</a>
+              <a class="nav-link" href="/apiTest/apiTest">API Test</a>
               
 
               
