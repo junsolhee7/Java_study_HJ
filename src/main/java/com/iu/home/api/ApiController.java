@@ -14,5 +14,10 @@ public class ApiController {
 	public void kakao() throws Exception{
 		
 	}
+	
+	@GetMapping("lol")
+	public void lol() throws Exception{
+		
+	}
 
 }

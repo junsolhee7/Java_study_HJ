@@ -27,6 +27,7 @@
               <a class="nav-link" href="/notice/list">공지사항</a>
               <a class="nav-link" href="/qna/list">QnA</a>
               <a class="nav-link" href="/api/kakao">Kakao</a>
+              <a class="nav-link" href="/api/lol">LoL</a>
               
 
               
