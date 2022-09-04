@@ -1,4 +1,4 @@
-package com.iu.home.ApiTest;
+package com.iu.home.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/apiTest/*")
+@RequestMapping("/api/*")
 public class ApiController {
 //	@Autowired
 	
-	@GetMapping("apiTest")
-	public void apiTest() throws Exception{
+	@GetMapping("kakao")
+	public void kakao() throws Exception{
 		
 	}
 
