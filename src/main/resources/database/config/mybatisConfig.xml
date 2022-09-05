@@ -10,6 +10,8 @@
  		
  		<typeAlias type="com.iu.home.bankBook.BankBookDTO" alias="BankBookDTO"/>
  		<typeAlias type="com.iu.home.bankBook.BankBookDAO" alias="BankBookDAO"/>
+ 		<typeAlias type="com.iu.home.bankBook.BankBookCommentDTO" alias="BankBookCommentDTO"/>
+ 		<typeAlias type="com.iu.home.bankBook.BankBookCommentDAO" alias="BankBookCommentDAO"/>
  		
  		<typeAlias type="com.iu.home.bankAccount.BankAccountDTO" alias="BankAccountDTO"/>
  		<typeAlias type="com.iu.home.bankAccount.BankAccountDAO" alias="BankAccountDAO"/>
