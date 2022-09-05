@@ -83,13 +83,28 @@ public class MembersController {
 	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(HttpSession session, BankMembersDTO bankMembersDTO, Model model) throws Exception {
+	public ModelAndView login(HttpSession session, BankMembersDTO bankMembersDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
 		System.out.println("DB에 로그인 실행");
 		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
 		System.out.println(bankMembersDTO);
 		session.setAttribute("member", bankMembersDTO);
 		
-		return "redirect:../";
+		int result = 0;
+		String message = "로그인실패";
+		String url = "./login";
+		if(bankMembersDTO!=null) {
+			result=1;
+			message="로그인성공";
+			url="../";
+		}
+		mv.addObject("result",result);
+		mv.addObject("message",message);
+		mv.addObject("url",url);
+		mv.setViewName("common/result");
+		
+		return mv;
+		
 	}
 	
 	@RequestMapping(value="search", method=RequestMethod.GET)

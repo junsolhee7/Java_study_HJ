@@ -72,12 +72,24 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="add", method=RequestMethod.POST)
-	public ModelAndView setAdd(BoardDTO boardDTO, HttpSession session, MultipartFile [] files)throws Exception{
+	public ModelAndView setAdd(BoardDTO boardDTO, HttpSession session, MultipartFile [] files) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		boardDTO.setWriter((((BankMembersDTO)(session.getAttribute("member"))).getUserName()));
 		int result = noticeService.setAdd(boardDTO,files,session.getServletContext());
 		mv.addObject("dto",boardDTO);
-		mv.setViewName("redirect:./list");
+		
+		String message="게시글 작성 실패";
+		String url = "./add";
+		if(result>0) {
+			result=1;
+			message="게시글 작성 완료";
+			url="../list";
+		}	
+		mv.addObject("result",result);
+		mv.addObject("message",message);
+		mv.addObject("url","./list");
+		
+		mv.setViewName("common/result");
 		return mv;
 	}
 	
