@@ -5,7 +5,7 @@
 		    
 <mapper namespace="com.iu.home.bankBook.BankBookCommentDAO">
 
-	<insert id="add" parameterType="BankBookCommentDTO">
+	<insert id="setCommentAdd" parameterType="BankBookCommentDTO">
 		INSERT INTO BB_COMMENT (NUM, BOOKNUM, WRITER, CONTENTS,REGDATE) VALUES (BANKBOOK_SEQ.NEXTVAL,#{bookNum},#{writer},#{contents},SYSDATE)
 	</insert>
 

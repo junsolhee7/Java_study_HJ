@@ -1,5 +1,6 @@
 package com.iu.home.bankBook;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -7,11 +8,13 @@ import org.springframework.stereotype.Repository;
 public class BankBookCommentDAO {
 	
 	@Autowired
+	private SqlSession sqlSession;
+	@Autowired
 	private final String NAMESPACE = "com.iu.home.bankBook.BankBookCommentDAO.";
 	
-	public int commentAdd() throws Exception{
+	public int setCommentAdd(BankBookCommentDTO bankBookCommentDTO) throws Exception{
 		
-		return 0;
+		return sqlSession.insert(NAMESPACE+"setCommentAdd",bankBookCommentDTO);
 	}
 
 	
