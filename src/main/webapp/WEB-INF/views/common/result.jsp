@@ -12,7 +12,7 @@
 <c:import url="../template/header.jsp"></c:import>
 
 	<script type="text/javascript">
-	let result = ${result};
+	let result = '${result}';
 	let message = '${message}';
 	alert(result);
 	alert(message);

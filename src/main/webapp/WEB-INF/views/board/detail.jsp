@@ -57,7 +57,10 @@
 	<c:if test="${not empty sessionScope.member}">
 	<a href="../bankAccount/add.iu?num=${requestScope.detail.num}">상품 가입하기</a>
 	</c:if>
+
+
 	<c:import url="../template/footer.jsp"></c:import>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+	
 </body>
 </html>

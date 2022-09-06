@@ -12,7 +12,7 @@ public class FileManagerTest extends MyAbstractTest{
 //	@Autowired
 	private FileManager fileManager;
 	
-	@Test
+	//@Test
 	public void saveFileTest() throws Exception{
 		fileManager.saveFile("resources/upload/test");
 		System.out.println("Finish--------");
