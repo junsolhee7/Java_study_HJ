@@ -24,6 +24,19 @@ public class BankBookController {
 	@Autowired
 	private BankBookService bankBookService;
 	
+	@PostMapping("commentUpdate")
+	public int setCommentUpdate(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+		int result= bankBookService.setCommentDelete(bankBookCommentDTO);
+		return result;
+	}
+	
+	@PostMapping("commentDelete")
+	@ResponseBody
+	public int setCommentDelete(BankBookCommentDTO bankBookCommentDTO) throws Exception{	
+		int result = bankBookService.setCommentDelete(bankBookCommentDTO);
+		return result;
+	}
+	
 //	//1. JSP에 출력하고 결과물을 응답으로 전송
 //	@GetMapping("commentList")
 //	public ModelAndView getCommentList(CommentPager commentPager) throws Exception{

@@ -5,6 +5,14 @@
 		    
 <mapper namespace="com.iu.home.bankBook.BankBookCommentDAO">
 
+	<update id="setCommentUpdate" parameterType="BankBookCommentDTO">
+		UPDATE BB_COMMENT SET CONTENTS=#{contents} WHERE NUM=#{num};
+	</update>
+
+	<delete id="setCommentDelete" parameterType="BankBookCommentDTO">
+		DELETE FROM BB_COMMENT WHERE NUM=#{num}
+	</delete>
+	
 	<select id="getCommentListTotalCount" parameterType ="CommentPager" resultType="Long">
 		SELECT COUNT(NUM) FROM BB_COMMENT WHERE BOOKNUM=#{bookNum}
 	</select>

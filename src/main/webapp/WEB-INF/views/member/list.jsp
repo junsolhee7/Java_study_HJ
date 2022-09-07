@@ -11,32 +11,34 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	
-	<table class="table table-sm">
-		<thead>
-			<tr class="table-info">
-				<th>ID</th>
-				<th>Name</th>
-				<th>Email</th>				
+	<section class="container-fluid col-lg-6">
+		<h1>Search Page</h1>
+		<table class="table table-sm">
+			<thead>
+				<tr class="table-info">
+					<th>ID</th>
+					<th>Name</th>
+					<th>Email</th>				
 				<th>Phone</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach begin="10" end="0" var="i" step="1">
 			<%-- for(int i=0;i<=10;i=i+2) --%>
-				<h3>${pageScope.i}</h3>
-			</c:forEach>
-			
-			<c:forEach items="${requestScope.list}" var="dto">
-				<tr>
-					<td class="table-secondary">${pageScope.dto.userName}</td>
-					<td class="table-success">${pageScope.dto.name}</td>
-					<td class="table-danger">${pageScope.dto.email}</td>
-					<td class="table-warning">${pageScope.dto.phone}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
+			<h3>${pageScope.i}</h3>
+		</c:forEach>
+		
+		<c:forEach items="${requestScope.list}" var="dto">
+			<tr>
+				<td class="table-secondary">${pageScope.dto.userName}</td>
+				<td class="table-success">${pageScope.dto.name}</td>
+				<td class="table-danger">${pageScope.dto.email}</td>
+				<td class="table-warning">${pageScope.dto.phone}</td>
+			</tr>
+		</c:forEach>
+	</tbody>
 	</table>
+</section>
 	<c:import url="../template/footer.jsp"></c:import>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
