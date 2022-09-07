@@ -1,6 +1,8 @@
 package com.iu.home.bankBook;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +40,7 @@ public class BankBookController {
 	//2. JSP에 출력하고 결과물을 응답으로 전송
 	@GetMapping("commentList")
 	@ResponseBody
-	public List<BankBookCommentDTO> getCommentList(CommentPager commentPager) throws Exception{
+	public Map<String,Object> getCommentList(CommentPager commentPager) throws Exception{
 		List<BankBookCommentDTO> ar = bankBookService.getCommentList(commentPager);
 		System.out.println("CommentList");
 		System.out.println(ar.size());
@@ -47,8 +49,10 @@ public class BankBookController {
 		//DTO == {}
 		//num=1 == {"num":1, "bookNum":123, "writer" : "name"}
 		//[{dto},{dto},{dto},{dto},{dto}]
-		
-		return ar;
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("list", ar);
+		map.put("pager", commentPager);
+		return map;
 	}
 	
 	

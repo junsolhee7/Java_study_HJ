@@ -5,8 +5,12 @@
 		    
 <mapper namespace="com.iu.home.bankBook.BankBookCommentDAO">
 
+	<select id="getCommentListTotalCount" parameterType ="CommentPager" resultType="Long">
+		SELECT COUNT(NUM) FROM BB_COMMENT WHERE BOOKNUM=#{bookNum}
+	</select>
 	<insert id="setCommentAdd" parameterType="BankBookCommentDTO">
-		INSERT INTO BB_COMMENT (NUM, BOOKNUM, WRITER, CONTENTS,REGDATE) VALUES (BANKBOOK_SEQ.NEXTVAL,#{bookNum},#{writer},#{contents},SYSDATE)
+		INSERT INTO BB_COMMENT (NUM, BOOKNUM, WRITER, CONTENTS,REGDATE)
+		 VALUES (BANKBOOK_SEQ.NEXTVAL,#{bookNum},#{writer},#{contents},SYSDATE)
 	</insert>
 	
 	<select id="getCommentList" parameterType="CommentPager" resultType="BankBookCommentDTO">

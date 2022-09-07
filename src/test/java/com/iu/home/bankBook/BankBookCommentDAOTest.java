@@ -15,6 +15,13 @@ public class BankBookCommentDAOTest extends MyAbstractTest {
 	@Autowired
 	private BankBookCommentDAO bankBookCommentDAO;
 
+//	@Test
+//	public void getCommentListTotalCount() throws Exception{
+//		
+//		bankBookCommentDAO.getCommentListTotalCount();
+//		assertNotEqualss(0,ar.size);
+//	}
+	
 	@Test
 	public void getCommentListTest() throws Exception{
 		CommentPager commentPager = new CommentPager();
@@ -23,10 +30,8 @@ public class BankBookCommentDAOTest extends MyAbstractTest {
 		commentPager.getRowNum();
 		
 		List<BankBookCommentDTO> ar = bankBookCommentDAO.getCommentList(null);
-		assertNotEquals(0,ar.size());
+		assertNotEquals(0, ar.size());
 	}
-	
-	
 	//@Test
 	public void setCommentAdd() throws Exception{
 		BankBookCommentDTO bankBookCommentDTO = new BankBookCommentDTO();

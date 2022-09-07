@@ -2,12 +2,17 @@ const commentAdd = document.querySelector("#commentAdd");
 const writer = document.querySelector("#writer");
 const contents = document.querySelector("#contents");
 const commentList = document.querySelector("#commentList");
+const more = document.querySelector("#more");
 
-getCommentList();
+//page 번호 담는 변수
+let page=1;
+//bookNum을 담을 변수
+const bookNum = commentAdd.getAttribute("data-book-num");
+getCommentList(page,bookNum);
+
 
 commentAdd.addEventListener("click",function(){
 
-    let bookNum = commentAdd.getAttribute("data-book-num");
     let wv = writer.value;
     let cv = contents.value;
 
@@ -32,25 +37,31 @@ commentAdd.addEventListener("click",function(){
             console.log(result);
             result = JSON.parse(result);
             console.log(result.result);
+            writer.value="";
+            contents.value="";
             if(result.result==1){
                 alert("댓글 작성 완료...");
-                getCommentList();
+
+                for(let i=0;i<commentList.children.length;){
+                    commentList.children[0].remove();
+                }
+                // if(commentList.children.length!=0){
+                //     commentList.children[0].remove();
+                // }
+                page=1;
+                getCommentList(page,bookNum);
             }else{
-
             }
-
         }
     }
-
-
 }); //click event 끝
 
-function getCommentList(){
+function getCommentList(p,bn){
     //1. XMLHTTPRequest생성
     const xhttp = new XMLHttpRequest();
 
     //2. Method, URL
-    xhttp.open("GET","./commentList?page=1&bookNum=1660194298495");
+    xhttp.open("GET","./commentList?page="+p+"&bookNum="+bn);
 
     //3. 요청 전송
     xhttp.send();
@@ -64,12 +75,15 @@ function getCommentList(){
             // commentList.innerHTML=xhttp.responseText.trim();
 
             //2. JSON 결과물
-            let ar = JSON.parse(xhttp.responseText.trim());
-            let result = document.createElement("table");
-            let resultAttr=document.createAttribute("class");
-            resultAttr.value="table";// table-dark table-hover
-            result.setAttributeNode(resultAttr); //<table class="table table-dark table-hover"></table>
+            let result = JSON.parse(xhttp.responseText.trim());
+            // let result = document.createElement("table");
+            // let resultAttr=document.createAttribute("class");
+            // resultAttr.value="table";// table-dark table-hover
+            // result.setAttributeNode(resultAttr); //<table class="table table-dark table-hover"></table>
 
+
+            let pager= result.pager; //commentPager
+            let ar= result.list; //댓글리스트
             for(let i=0;i<ar.length;i++){
                 
                 let tr = document.createElement("tr");//<tr></tr>
@@ -89,10 +103,77 @@ function getCommentList(){
                 td.appendChild(tdText);
                 tr.appendChild(td);
 
-                result.appendChild(tr);
-            }
-            commentList.append(result);
+                td = document.createElement("td");
+                tdText=document.createTextNode("수정");
+                let tdAttr = document.createAttribute("class");
+                tdAttr.value="update";
+                td.setAttributeNode(tdAttr);
+                td.appendChild(tdText);
+                tr.appendChild(td);
 
-        }
+                td = document.createElement("td");
+                tdAttr = document.createAttribute("class");
+                tdAttr.value="delete";
+                td.setAttributeNode(tdAttr);
+                tdText=document.createTextNode("삭제");
+                td.appendChild(tdText);
+                
+                tdAttr=document.createAttribute("data-comment-num");
+                tdAttr.value=ar[i].num;
+                td.setAttributeNode(tdAttr);
+                
+                tr.appendChild(td);
+
+                commentList.append(tr);
+
+                if(page>=pager.totalPage){
+                    more.classList.add("diasbled");
+                }else {
+                    more.classList.remove("disabled");
+                }
+            }
+            // console.log(result);
+            // console.log(commentList.children);
+            
+            // let t = commentList.children;
+
+            // if(t.length!=0){
+            //     commentList.children[0].remove();
+            // }
+            
+
+            // try{
+                //     console.log(commentList.children());
+                //     throw new Error("에러 메시지");
+                // }catch(exception){
+                    
+                    // }finally{
+                        
+                        // }
+                        // commentList.append(result);
+                        // commentList.children[0].remove();
+                        
+                    }
     });
 }
+//-------------------------더보기----------------------------------
+more.addEventListener("click",function(){
+    page++;
+    // const bookNum = commentAdd.getAttribute("data-book-num");
+    console.log(page);
+    console.log(bookNum);
+    getCommentList(page,bookNum);
+});
+
+
+//---------------------------Delete-------------------
+
+commentList.addEventListener("click", function(event){
+    if(event.target.className=="delete"){
+        let check = window.confirm("삭제하시겠습니까?");
+        if(check==true){
+            let num = event.target.getAttribute("data-comment-num");
+            console.log("num: ",num);
+        }
+    }
+});

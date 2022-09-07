@@ -62,10 +62,12 @@
 	</div>
 	<!---------Comment List 출력-->
 
-	<div id="commentList">
-		
-	</div>
+	<div id="commentList" class="table table-hover">
+		<table>
 
+		</table>
+	</div>
+	<button id="more" class="btn btn-danger diabled">더보기</button>
 	<!---------Comment------------>
 
 	<c:import url="../template/footer.jsp"></c:import>
