@@ -21,8 +21,35 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.iu..*" />
+	<!-- Interceptor 설정 -->
+	<!-- Interceptor 객체 생성 -->
+	<beans:bean class="com.iu.home.interceptor.TestInterceptor" id="testInterceptor"></beans:bean>
 	
+	<!-- URL, Interceptor 맵핑 -->
+	<interceptors>
+		<interceptor>
+			<!-- URL 경로 -->
+			<mapping path="/**"/>
+			<beans:ref bean="testInterceptor"/>	
+		</interceptor>
+		
+<!-- 	<interceptor>
+			<mapping path="/qna/*"/>
+			<mapping path="/member/myPage.iu"/>
+			<exclude-mapping path="/qna/list"/>
+			
+			<beans:bean class="com.iu.home.interceptor.MemberInterceptor" id="memberInterceptor"></beans:bean>
+		</interceptor> -->
+		
+		<interceptor>
+			<mapping path="/qna/update.iu"/>
+			<mapping path="/notice/update.iu"/>
+			<beans:bean class="com.iu.home.interceptor.WriterCheckInterceptor" id="writerCheckInterceptor"></beans:bean>
+		</interceptor>	
+		
+	</interceptors>
+	
+	<context:component-scan base-package="com.iu..*" />
 	
 	
 </beans:beans>

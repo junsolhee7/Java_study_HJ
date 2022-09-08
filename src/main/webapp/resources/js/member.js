@@ -41,7 +41,7 @@ all.addEventListener("click",function(){
     for(let i=0;i<cb.length;i++){
         cb[i].checked=all.checked;
     }
-})
+});
 
 for(let i=0; i<cb.length;i++){
     cb[i].addEventListener("click", check);
