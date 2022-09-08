@@ -76,7 +76,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<a href="./add">게시글 작성</a>
+		<a href="./add">게시글 작성</a>
 	
 	<nav aria-label="Page navigation example">
 		<ul class="pagination">

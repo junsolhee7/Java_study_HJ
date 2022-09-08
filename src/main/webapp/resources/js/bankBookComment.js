@@ -4,6 +4,7 @@ const contents = document.querySelector("#contents");
 const commentList = document.querySelector("#commentList");
 const more = document.querySelector("#more");
 
+
 //page 번호 담는 변수
 let page=1;
 //bookNum을 담을 변수
@@ -97,7 +98,17 @@ function getCommentList(p,bn){
                 tr.appendChild(td);
 
                 td = document.createElement("td");//<td></td>
+                // 1. js에서 날짜변경
+                // let date = new Date(ar[i].regDate);
+                // console.log(date);
+                // let year = date.getFullYear();
+                // let month = date.getMonth()+1;
+                // let d =date.getDate();
+                // tdText=document.createTextNode(year+"-"+month+"-"+d);
+                // 2.DTO에서 날짜변경
                 tdText=document.createTextNode(ar[i].regDate);
+
+
                 td.appendChild(tdText);
                 tr.appendChild(td);
 
@@ -107,6 +118,11 @@ function getCommentList(p,bn){
                 tdAttr.value="update";
                 td.setAttributeNode(tdAttr);
                 td.appendChild(tdText);
+                tr.appendChild(td);
+
+                tdAttr=document.createAttribute("data-comment-num");
+                tdAttr.value=ar[i].num;
+                td.setAttributeNode(tdAttr);
                 tr.appendChild(td);
 
                 td = document.createElement("td");
@@ -119,7 +135,6 @@ function getCommentList(p,bn){
                 tdAttr=document.createAttribute("data-comment-num");
                 tdAttr.value=ar[i].num;
                 td.setAttributeNode(tdAttr);
-                
                 tr.appendChild(td);
                 
                 commentList.append(tr);
@@ -175,7 +190,17 @@ commentList.addEventListener("click", function(event){
         // let v = contents.innerHTML;
         // contents.innerHTML="<textarea>"+v+"</textarea>";
         //2. 모달이용
+        let contents = event.target.previousSibling.previousSibling.previousSibling.innerHTML;
+        let writer = event.target.previousSibling.previousSibling.innerHTML;
+        let num = event.target.getAttribute("data-comment-num");
+        console.log(contents);
+        document.querySelector("#updateContents").value = contents;
+        document.querySelector("#updateWriter").value = writer;
+        document.querySelector("#num").value=num;
+
         document.querySelector("#up").click();
+
+        
 
     }
     
@@ -219,3 +244,37 @@ commentList.addEventListener("click", function(event){
     }
 });
 
+//----------------------------Modal Update button click----------------------------
+
+const update = document.querySelector("#update");
+update.addEventListener("click",function(){
+    //modal 에서 num,contents 전송
+
+    let num = document.getElementById("num").value;
+    let contents = document.querySelector("#updateContents").value;
+
+    //1.--------------Ajax------------------
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST","commentUpdate");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("num="+num+"&contents="+contents);
+    xhttp.onreadystatechange=function(){
+        if(xhttp.readyState == 4 && xhttp.status == 200){
+            console.log(xhttp.responseText.trim());
+            let result=xhttp.responseText.trim();
+            if(result>0){
+                alert("댓글 수정 완료...");
+                for(let i=0;i<commentList.children.length;){
+                    commentList.children[0].remove();
+                }
+                    page=1;
+                    getCommentList(page,bookNum);
+
+
+            }else{
+                alert("댓글 수정 실패...");
+            }
+        }
+    }
+
+});

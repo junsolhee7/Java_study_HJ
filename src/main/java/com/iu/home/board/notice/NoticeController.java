@@ -64,11 +64,16 @@ public class NoticeController {
 	//글작성
 	
 	@RequestMapping(value="add", method=RequestMethod.GET)
-	public ModelAndView setAdd(ModelAndView mv)throws Exception{
-		
-		mv.addObject("board","Notice");
-		mv.setViewName("/board/add");
-		return mv;
+	public ModelAndView setAdd(ModelAndView mv, HttpSession session)throws Exception{
+		BankMembersDTO bankMembersDTO= (BankMembersDTO)session.getAttribute("member");
+		if(bankMembersDTO!=null) {
+			mv.addObject("board","Notice");
+			mv.setViewName("/board/add");
+			return mv;			
+		}else {
+			mv.setViewName("redirect:../member/login");
+			return mv;
+		}
 	}
 	
 	@RequestMapping(value="add", method=RequestMethod.POST)

@@ -2,11 +2,15 @@ package com.iu.home.board.impl;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
+
 public class CommentDTO {
 	
 	private Long num;
 	private String Writer;
 	private String contents;
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date regDate;
 	
 	
