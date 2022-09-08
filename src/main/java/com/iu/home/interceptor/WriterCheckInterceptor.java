@@ -22,6 +22,7 @@ public class WriterCheckInterceptor extends HandlerInterceptorAdapter {
 		if(method.equals("POST")) {
 			return ;
 		}
+		
 		//로그인 사용자의 ID와 DTO의 작성자가 일치하는가?
 		//로그인 사용자 정보
 
