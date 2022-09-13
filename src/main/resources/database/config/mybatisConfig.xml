@@ -7,6 +7,7 @@
  	<typeAliases>
  		<typeAlias type="com.iu.home.bankMembers.BankMembersDTO" alias="BankMembersDTO"/>
  		<typeAlias type="com.iu.home.bankMembers.BankMembersDAO" alias="BankMembersDAO"/>
+ 		<typeAlias type="com.iu.home.bankMembers.RoleDTO" alias="RoleDTO"/>
  		
  		<typeAlias type="com.iu.home.bankBook.BankBookDTO" alias="BankBookDTO"/>
  		<typeAlias type="com.iu.home.bankBook.BankBookDAO" alias="BankBookDAO"/>
